@@ -25,9 +25,51 @@
             </div>
         </section>
 
-        <!--Grid de personajes-->
-        <section id="containerPersonajes" class="row">
-            <!-- Aqui se veran los personajes dentro de tarjetas-->
+        <section class="row">
+            <!-- Columna de Filtros -->
+            <aside id="filtrosColumna" class="col-md-3 mb-4">
+                <div class="filtros">
+                    <h5>Filtros</h5>
+                    <form id="formFiltros">
+                        <!-- Filtros de Género -->
+                        <div class="form-group">
+                            <label for="filtroGenero">Género</label>
+                            <select id="filtroGenero" class="form-control" name="filtro">
+                                <option value="">Mostrar Todos</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="n/a">N/A</option>
+                            </select>
+                        </div>
+                        <!-- Filtros de Planeta -->
+                        <div class="form-group">
+                            <label for="filtroPlaneta">Planeta</label>
+                            <select id="filtroPlaneta" class="form-control" name="filtro">
+                                <option value="">Mostrar Todos</option>
+                                <option value="tatooine">Tatooine</option>
+                                <option value="alderaan">Alderaan</option>
+                                <option value="naboo">Naboo</option>
+                            </select>
+                        </div>
+                        <!-- Filtros de Especie -->
+                        <div class="form-group">
+                            <label for="filtroEspecie">Especie</label>
+                            <select id="filtroEspecie" class="form-control" name="filtro">
+                                <option value="">Mostrar Todos</option>
+                                <option value="human">Human</option>
+                                <option value="droid">Droid</option>
+                                <option value="wookiee">Wookiee</option>
+                            </select>
+                        </div>
+                        <button type="button" id="aplicarFiltros" class="btn btn-primary mt-3">Aplicar Filtros</button>
+                    </form>
+                </div>
+            </aside>
+        
+            <!-- Grid de personajes -->
+            <section id="containerPersonajes" class="col-md-9 row">
+                <!-- Aquí se verán los personajes dentro de tarjetas -->
+            </section>
         </section>
 
         <!--Paginas-->

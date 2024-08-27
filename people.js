@@ -127,5 +127,90 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    botonBusqueda.addEventListener('click', function () {
+        const query = barraBusqueda.value.toLowerCase();
+        personajesMostrados = personajes.filter(personaje => personaje.name.toLowerCase().includes(query));
+
+        if (personajesMostrados.length > 0) {
+            paginaActual = 1;
+            mostrarPersonajes(paginaActual);
+            crearPaginas();
+        } else {
+            containerPersonajes.innerHTML = '<p class="text-center">No characters found</p>';
+            paginasTodas.innerHTML = '';
+        }
+    });
+
+    aplicarFiltros.addEventListener('click', async function () {
+        const genero = filtroGenero.value.toLowerCase();
+        const planeta = filtroPlaneta.value.toLowerCase();
+        const especie = filtroEspecie.value.toLowerCase();
+
+        personajesMostrados = [];
+
+        for (let personaje of personajes) {
+            let coincide = true;
+
+            // Filtrar por Género
+            if (genero && personaje.gender.toLowerCase() !== genero) {
+                coincide = false;
+            }
+
+            // Filtrar por Planeta
+            if (planeta && coincide) {
+                try {
+                    const response = await fetch(personaje.homeworld);
+                    const data = await response.json();
+                    if (data.name.toLowerCase() !== planeta) {
+                        coincide = false;
+                    }
+                } catch (error) {
+                    console.error('Error al filtrar por planeta:', error);
+                    coincide = false;
+                }
+            }
+
+            // Filtrar por Especie
+            if (especie && coincide) {
+                let especieCoincide = false;
+
+                if (personaje.species.length > 0) {
+                    try {
+                        for (let url of personaje.species) {
+                            const response = await fetch(url);
+                            const data = await response.json();
+                            if (data.name.toLowerCase() === especie) {
+                                especieCoincide = true;
+                                break;
+                            }
+                        }
+
+                        if (!especieCoincide) {
+                            coincide = false;
+                        }
+                    } catch (error) {
+                        console.error('Error al filtrar por especie:', error);
+                        coincide = false;
+                    }
+                } else {
+                    coincide = false; // Si no tiene especies registradas y se filtra por especie
+                }
+            }
+
+            if (coincide) {
+                personajesMostrados.push(personaje);
+            }
+        }
+
+        if (personajesMostrados.length > 0) {
+            paginaActual = 1;
+            mostrarPersonajes(paginaActual);
+            crearPaginas();
+        } else {
+            containerPersonajes.innerHTML = '<p class="text-center">No characters found</p>';
+            paginasTodas.innerHTML = '';
+        }
+    });
+
     obtenerPersonajes();
 });
