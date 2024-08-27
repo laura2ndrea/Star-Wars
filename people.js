@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             // Filtrar por Planeta
-            if (planeta && coincide) {
+            if (planeta) {
                 try {
                     const response = await fetch(personaje.homeworld);
                     const data = await response.json();
