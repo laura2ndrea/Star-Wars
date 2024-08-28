@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="peliculas.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="icon" href="icono.png">
+    <link rel="stylesheet" href="films.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Star Wars</title>
 </head>
+
 <body>
     <header>
-        <h1 class="text-center py-3">People</h1>
+        <h1 class="text-center py-3">Films</h1>
     </header>
 
     <main class="container my-4">
-        <!-- Barra de busqueda -->
+        <!-- Barra de búsqueda -->
         <section class="row mb-4">
             <div class="col-md-8 offset-md-2">
                 <div class="input-group">
-                    <input type="text" id="barraBusqueda" class="form-control" placeholder="Buscar personaje por nombre">
+                    <input type="text" id="barraBusqueda" class="form-control" placeholder="Buscar Película por nombre">
                     <div class="input-group-append">
                         <button id="botonBusqueda" class="btn btn-primary">Buscar</button>
                     </div>
@@ -27,144 +31,90 @@
 
         <section class="row">
             <!-- Columna de Filtros -->
-            <aside id="filtrosColumna" class="col-md-3 mb-4">
+            <aside id="filtrosColumna" class="col-md-2 mb-4">
                 <div class="filtros">
                     <h5>Filtros</h5>
                     <form id="formFiltros">
-                        <!--Sin filtro-->
+                        <!-- Sin filtro -->
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="filtro" id="sinFiltro" checked>
+                            <input class="form-check-input" type="radio" name="filtro" value="" id="sinFiltro" checked>
                             <label class="form-check-label" for="sinFiltro">
-                              Mostrar todos
+                                Mostrar todos
                             </label>
                         </div>
-                        <!-- Filtros de género -->
-                        <h6>Gender</h6>
+                        <!-- Filtros por trilogía -->
+                        <h6>Trilogía</h6>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="filtro" id="generoMale">
-                            <label class="form-check-label" for="generoMale">
-                                Male
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="filtro" id="generoFemale">
-                            <label class="form-check-label" for="generoFemale">
-                                Female
+                            <input class="form-check-input" type="radio" name="filtro" value="original_trilogy"
+                                id="trilogiaOriginal">
+                            <label class="form-check-label" for="trilogiaOriginal">
+                                Original
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="filtro" id="generoFemale">
-                            <label class="form-check-label" for="generoFemale">
-                                N/A
+                            <input class="form-check-input" type="radio" name="filtro" value="prequel_trilogy"
+                                id="trilogiaPrecuela">
+                            <label class="form-check-label" for="trilogiaPrecuela">
+                                Precuela
                             </label>
                         </div>
-                        <!-- Filtros de planeta -->
-                        <h6>Homeword</h6>
+                        <!-- Filtros por año -->
+                        <h6>Año</h6>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="filtro" id="planetaTatooine">
-                            <label class="form-check-label" for="planetaTatooine">
-                                Tatooine
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="filtro" id="planetaAlderaan">
-                            <label class="form-check-label" for="planetaAlderaan">
-                                Alderaan
+                            <input class="form-check-input" type="radio" name="filtro" value="1900s">
+                            <label class="form-check-label" for="filtro1900s">
+                                1900s
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="filtro" id="planetaNaboo">
-                            <label class="form-check-label" for="planetaNaboo">
-                                Naboo
+                            <input class="form-check-input" type="radio" name="filtro" value="2000s">
+                            <label class="form-check-label" for="filtro2000s">
+                                2000s
                             </label>
                         </div>
-                        <!-- Filtros de especies -->
-                        <h6>Species</h6>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="filtro" id="especieHuman">
-                            <label class="form-check-label" for="especieHuman">
-                                Tatooine
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="filtro" id="especieDroid">
-                            <label class="form-check-label" for="especieDroid">
-                                Alderaan
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="filtro" id="especieWookiee">
-                            <label class="form-check-label" for="especieWookiee">
-                                Naboo
-                            </label>
-                        </div>
-                        <div class="form-group">
-                            <label for="filtroGenero">Género</label>
-                            <select id="filtroGenero" class="form-control" name="filtro">
-                                <option value="">Mostrar Todos</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                                <option value="n/a">N/A</option>
-                            </select>
-                        </div>
-                        <!-- Filtros de Planeta -->
-                        <div class="form-group">
-                            <label for="filtroPlaneta">Planeta</label>
-                            <select id="filtroPlaneta" class="form-control" name="filtro">
-                                <option value="">Mostrar Todos</option>
-                                <option value="tatooine">Tatooine</option>
-                                <option value="alderaan">Alderaan</option>
-                                <option value="naboo">Naboo</option>
-                            </select>
-                        </div>
-                        <!-- Filtros de Especie -->
-                        <div class="form-group">
-                            <label for="filtroEspecie">Especie</label>
-                            <select id="filtroEspecie" class="form-control" name="filtro">
-                                <option value="">Mostrar Todos</option>
-                                <option value="human">Human</option>
-                                <option value="droid">Droid</option>
-                                <option value="wookiee">Wookiee</option>
-                            </select>
-                        </div>
-                        <button type="button" id="aplicarFiltros" class="btn btn-primary mt-3">Aplicar Filtros</button>
+
+                        <button type="button" id="aplicarFiltros" class="btn btn-primary mt-3">Aplicar filtros</button>
                     </form>
                 </div>
             </aside>
-        
-            <!-- Grid de personajes -->
-            <section id="containerPersonajes" class="col-md-9 row">
-                <!-- Aquí se verán los personajes dentro de tarjetas -->
+
+            <!-- Grid de películas -->
+            <section id="containerPeliculas" class="col-md-10 row">
+                <!-- Aquí se verán las películas dentro de tarjetas -->
             </section>
         </section>
 
-        <!--Paginas-->
-        <nav aria-label="Paginas de los personajes" id="paginas">
+        <!-- Páginas -->
+        <nav aria-label="Páginas de las películas" id="paginas">
             <ul class="pagination justify-content-center mt-4">
-                <!--Aqui se generaran las paginas correspondientes-->
+                <!-- Aquí se generarán las páginas correspondientes -->
             </ul>
         </nav>
     </main>
 
-    <!--Overlay para los detalles de los personajes-->
-    <aside id="personajesOverlay" class="overlay">
-        <div class="contenidoOverlay">
-            <button type="button" id="cerrarOverlay" class="close" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <div id="personajesDetalles">
-                <!--Aqui se mostrara la información detallada de los personajes-->
+    <!-- Modal -->
+    <div class="modal fade" id="detallePeliculaModal" tabindex="-1" aria-labelledby="detallePeliculaModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detallePeliculaModalLabel">Detalles del Película</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="peliculasDetalles">
+                    <!-- Aquí se mostrará la información detallada de las películas -->
+                </div>
             </div>
         </div>
-    </aside>
+    </div>
 
     <footer class="bg-dark text-white text-center py-3">
         <p>&copy; Star Wars</p>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
     <script src="films.js"></script>
 </body>
-</html>
 
+</html>
