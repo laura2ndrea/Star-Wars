@@ -7,24 +7,23 @@ document.addEventListener('DOMContentLoaded', function () {
     const personajesDetalles = document.getElementById('personajesDetalles');
     const cerrarOverlay = document.getElementById('cerrarOverlay');
     const paginasTodas = document.getElementById('paginas');
+    const aplicarFiltros = document.getElementById('aplicarFiltros'); // Añadido para el botón de filtros
 
-    let personajes = []; // Variable que guarda todos los personajes 
-    let personajesMostrados = []; // Variable que guarda los personajes mostrados en la página actual 
-    let paginaActual = 1; // Para guardar la página actual
-    let itemsPorPagina = 9; // Cantidad de personajes que se mostrarán por página
+    let personajes = [];
+    let personajesMostrados = [];
+    let paginaActual = 1;
+    let itemsPorPagina = 9;
 
-    // Función para obtener todos los personajes 
     async function obtenerPersonajes(url = 'https://swapi.dev/api/people/') {
         try {
-            const respuesta = await fetch(url); // petición a la API y guarda la respuesta
-            const data = await respuesta.json(); // guarda los datos si la respuesta fue positiva y los convierte en un objeto json 
-            personajes = personajes.concat(data.results); // agrega todos los personajes de la API a la lista personajes
+            const respuesta = await fetch(url);
+            const data = await respuesta.json();
+            personajes = personajes.concat(data.results);
 
-            // Recorro todas las páginas hasta obtener todos los personajes
             if (data.next) {
-                obtenerPersonajes(data.next);
+                await obtenerPersonajes(data.next); // Esperar a que se resuelva la llamada recursiva
             } else {
-                personajesMostrados = personajes; // para mostrar todos los personajes
+                personajesMostrados = personajes;
                 mostrarPersonajes();
                 crearPaginas();
             }
@@ -34,28 +33,32 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function mostrarPersonajes(pagina = 1) {
-        containerPersonajes.innerHTML = ''; // limpia el contenido del contenedor; 
-        const inicio = (pagina - 1) * itemsPorPagina; // determina desde qué índice de la lista personajesMostrados se debe comenzar a mostrar los personajes
-        const fin = inicio + itemsPorPagina; // determina hasta qué índice se mostrarán los personajes 
-        const personajesPorPagina = personajesMostrados.slice(inicio, fin); // guardo los personajes que se mostrarán en la página actual 
+        containerPersonajes.innerHTML = '';
+        const inicio = (pagina - 1) * itemsPorPagina;
+        const fin = inicio + itemsPorPagina;
+        const personajesPorPagina = personajesMostrados.slice(inicio, fin);
 
-        // Itera sobre cada elemento de la lista y crea una tarjeta para cada personaje 
         personajesPorPagina.forEach(personaje => {
             const tarjetaPersonaje = document.createElement('div');
             tarjetaPersonaje.className = 'col-md-4 mb-4';
+
+            // ID del personaje para la URL de la imagen
+            const idPersonaje = obtenerIdPersonaje(personaje.url);
+            const urlImagen = `https://starwars-visualguide.com/assets/img/characters/${idPersonaje}.jpg`;
+            const urlImagenDefault = 'https://starwars-visualguide.com/assets/img/placeholder.jpg'; // URL de la imagen por defecto
+
             tarjetaPersonaje.innerHTML = `
-                    <div class="card personaje-tarjeta">
-                        <img src="https://starwars-visualguide.com/assets/img/characters/${obtenerIdPersonaje(personaje.url)}.jpg" class="card-img-top" alt="${personaje.name}">
-                        <div class="card-body">
-                            <h5 class="card-title">${personaje.name}</h5>
-                            <button class="btn btn-primary" data-url="${personaje.url}">Ver Detalles</button>
-                        </div>
-                    </div>
-                `;
+            <div class="card personaje-tarjeta">
+                <img src="${urlImagen}" class="card-img-top" alt="${personaje.name}" onerror="this.onerror=null; this.src='${urlImagenDefault}';">
+                <div class="card-body">
+                    <h5 class="card-title">${personaje.name}</h5>
+                    <button class="btn btn-primary" data-url="${personaje.url}">Ver Detalles</button>
+                </div>
+            </div>
+        `;
             containerPersonajes.appendChild(tarjetaPersonaje);
         });
 
-        // Agrega los event listeners a cada botón (en las tarjetas de los personajes)
         document.querySelectorAll('.personaje-tarjeta button').forEach(button => {
             button.addEventListener('click', function () {
                 const personajeURL = this.getAttribute('data-url');
@@ -64,13 +67,11 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Función para obtener el ID del personaje 
     function obtenerIdPersonaje(url) {
         const partes = url.split('/');
         return partes[partes.length - 2];
     }
 
-    // Función para crear las páginas necesarias para mostrar los personajes 
     function crearPaginas() {
         const totalPaginas = Math.ceil(personajesMostrados.length / itemsPorPagina);
         paginasTodas.innerHTML = '';
@@ -127,78 +128,63 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    botonBusqueda.addEventListener('click', function () {
-        const query = barraBusqueda.value.toLowerCase();
-        personajesMostrados = personajes.filter(personaje => personaje.name.toLowerCase().includes(query));
-
-        if (personajesMostrados.length > 0) {
-            paginaActual = 1;
-            mostrarPersonajes(paginaActual);
-            crearPaginas();
-        } else {
-            containerPersonajes.innerHTML = '<p class="text-center">No characters found</p>';
-            paginasTodas.innerHTML = '';
-        }
-    });
-
     aplicarFiltros.addEventListener('click', async function () {
-        const genero = filtroGenero.value.toLowerCase();
-        const planeta = filtroPlaneta.value.toLowerCase();
-        const especie = filtroEspecie.value.toLowerCase();
+        const filtros = document.getElementsByName('filtro');
+        let filtro = null;
 
-        personajesMostrados = [];
-
-        for (let personaje of personajes) {
-            let coincide = true;
-
-            // Filtrar por Género
-            if (genero && personaje.gender.toLowerCase() !== genero) {
-                coincide = false;
+        for (let i = 0; i < filtros.length; i++) {
+            if (filtros[i].checked) {
+                filtro = filtros[i].value;
             }
+        }
 
-            // Filtrar por Planeta
-            if (planeta) {
-                try {
-                    const response = await fetch(personaje.homeworld);
-                    const data = await response.json();
-                    if (data.name.toLowerCase() !== planeta) {
-                        coincide = false;
+        // Copia superficial del array personajes si no se aplica filtro
+        if (filtro === "") {
+            personajesMostrados = [...personajes];
+        } else {
+            // Si se aplica un filtro, vacía el array de personajes mostrados
+            personajesMostrados = [];
+
+            for (let personaje of personajes) {
+                if (filtro === personaje.gender.toLowerCase()) {
+                    personajesMostrados.push(personaje);
+                } else if (["tatooine", "alderaan", "naboo", "human", "droid", "wookie"].includes(filtro)) {
+                    switch (filtro) {
+                        case "tatooine":
+                            if (personaje.homeworld === "https://swapi.dev/api/planets/1/")
+                                personajesMostrados.push(personaje);
+                            break;
+                        case "alderaan":
+                            if (personaje.homeworld === "https://swapi.dev/api/planets/2/")
+                                personajesMostrados.push(personaje);
+                            break;
+                        case "naboo":
+                            if (personaje.homeworld === "https://swapi.dev/api/planets/8/")
+                                personajesMostrados.push(personaje);
+                            break;
+                        case "human":
+                            personaje.species.forEach(url => {
+                                if (url === "https://swapi.dev/api/species/1/") {
+                                    personajesMostrados.push(personaje);
+                                }
+                            })
+                            break;
+                        case "droid":
+                            personaje.species.forEach(url => {
+                                if (url === "https://swapi.dev/api/species/2/") {
+                                    personajesMostrados.push(personaje);
+                                }
+                            })
+                            break;
+                        case "wookie":
+                            personaje.species.forEach(url => {
+                                if (url === "https://swapi.dev/api/species/3/") {
+                                    personajesMostrados.push(personaje);
+                                }
+                            })
+                            break;
                     }
-                } catch (error) {
-                    console.error('Error al filtrar por planeta:', error);
-                    coincide = false;
                 }
-            }
-
-            // Filtrar por Especie
-            if (especie && coincide) {
-                let especieCoincide = false;
-
-                if (personaje.species.length > 0) {
-                    try {
-                        for (let url of personaje.species) {
-                            const response = await fetch(url);
-                            const data = await response.json();
-                            if (data.name.toLowerCase() === especie) {
-                                especieCoincide = true;
-                                break;
-                            }
-                        }
-
-                        if (!especieCoincide) {
-                            coincide = false;
-                        }
-                    } catch (error) {
-                        console.error('Error al filtrar por especie:', error);
-                        coincide = false;
-                    }
-                } else {
-                    coincide = false; // Si no tiene especies registradas y se filtra por especie
-                }
-            }
-
-            if (coincide) {
-                personajesMostrados.push(personaje);
             }
         }
 
@@ -212,5 +198,5 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    obtenerPersonajes();
+    obtenerPersonajes(); // Iniciar la obtención de personajes al cargar la página
 });
