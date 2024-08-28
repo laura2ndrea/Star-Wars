@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const personajesOverlay = document.getElementById('personajesOverlay');
     const personajesDetalles = document.getElementById('personajesDetalles');
     const cerrarOverlay = document.getElementById('cerrarOverlay');
-    const paginasTodas = document.getElementById('paginas');
+    const paginasTodas = document.querySelector('#paginas .pagination');
     const aplicarFiltros = document.getElementById('aplicarFiltros'); // Añadido para el botón de filtros
 
     let personajes = [];
@@ -78,8 +78,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         for (let i = 1; i <= totalPaginas; i++) {
             const itemPagina = document.createElement('li');
-            itemPagina.className = `item-pagina ${i === paginaActual ? 'active' : ''}`;
-            itemPagina.innerHTML = `<a class='link-pagina' href='#'>${i}</a>`;
+            itemPagina.className = `page-item ${i === paginaActual ? 'active' : ''}`;
+            itemPagina.innerHTML = `<a class='page-link' href='#'>${i}</a>`;
             paginasTodas.appendChild(itemPagina);
 
             itemPagina.addEventListener('click', function (e) {
