@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <img src="${urlImagen}" class="card-img-top" alt="${personaje.name}" onerror="this.onerror=null; this.src='${urlImagenDefault}';">
                 <div class="card-body">
                     <h5 class="card-title">${personaje.name}</h5>
-                    <button class="btn btn-primary" data-url="${personaje.url}">Ver Detalles</button>
+                    <button class="btn btn-primary" data-url="${personaje.url}">Ver detalles</button>
                 </div>
             </div>
         `;
@@ -105,14 +105,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     <p><strong>Birth Year:</strong> ${data.birth_year}</p>
                     <p><strong>Gender:</strong> ${data.gender}</p>
                 `;
-                personajesOverlay.style.display = 'flex';
+                const detallePersonajeModal = new bootstrap.Modal(document.getElementById('detallePersonajeModal')); 
+                detallePersonajeModal.show(); 
             })
             .catch(error => console.error('Error al mostrar los detalles del personaje', error));
     }
-
-    cerrarOverlay.addEventListener('click', function () {
-        personajesOverlay.style.display = 'none';
-    });
 
     botonBusqueda.addEventListener('click', function () {
         const query = barraBusqueda.value.toLowerCase();
