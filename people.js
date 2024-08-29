@@ -3,9 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const barraBusqueda = document.getElementById('barraBusqueda');
     const botonBusqueda = document.getElementById('botonBusqueda');
     const containerPersonajes = document.getElementById('containerPersonajes');
-    const personajesOverlay = document.getElementById('personajesOverlay');
     const personajesDetalles = document.getElementById('personajesDetalles');
-    const cerrarOverlay = document.getElementById('cerrarOverlay');
     const paginasTodas = document.querySelector('#paginas .pagination');
     const aplicarFiltros = document.getElementById('aplicarFiltros'); // Añadido para el botón de filtros
 
@@ -99,10 +97,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     <h2>${data.name}</h2>
                     <p><strong>Height:</strong> ${data.height} cm</p>
                     <p><strong>Mass:</strong> ${data.mass} kg</p>
-                    <p><strong>Hair Color:</strong> ${data.hair_color}</p>
-                    <p><strong>Skin Color:</strong> ${data.skin_color}</p>
-                    <p><strong>Eye Color:</strong> ${data.eye_color}</p>
-                    <p><strong>Birth Year:</strong> ${data.birth_year}</p>
+                    <p><strong>Hair color:</strong> ${data.hair_color}</p>
+                    <p><strong>Skin color:</strong> ${data.skin_color}</p>
+                    <p><strong>Eye color:</strong> ${data.eye_color}</p>
+                    <p><strong>Birth year:</strong> ${data.birth_year}</p>
                     <p><strong>Gender:</strong> ${data.gender}</p>
                 `;
                 const detallePersonajeModal = new bootstrap.Modal(document.getElementById('detallePersonajeModal')); 
