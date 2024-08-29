@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Star Wars</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
 <body>
@@ -17,7 +19,7 @@
         <label for="menu-toggle" class="hamburguer-menu" style="color: white;">&#9776;</label>
         <div class="menu-overlay">
             <label for="menu-toggle" class="close-menu">&times;</label>
-            <nav class="navegador">  
+            <nav class="navegador">
                 <ul class="barra">
                     <li><a href="films.html">FILMS</a></li>
                     <li><a href="people.html">PEOPLE</a></li>
@@ -29,18 +31,23 @@
             </nav>
         </div>
     </header>
-    
-    <section class="container1">
-        <div class="carousel">
-            <button class="prev">&#10094;</button>
-            <img src="https://t3.ftcdn.net/jpg/02/98/94/38/360_F_298943877_A4W7tVyZPCu6gNGuGXJUerZbXsWmblLb.jpg" alt="">
-            <img src="https://img.uhdpaper.com/wallpaper/darth-vader-obi-wan-kenobi-series-653@1@g-thumb.jpg" alt="">
-            <img src="https://www.lavanguardia.com/files/og_thumbnail/uploads/2020/02/04/5fa8ff22f10b5.jpeg" alt="">
-            <img src="https://i.pinimg.com/originals/49/86/d7/4986d7c7b927ef7dfc9955f1d05267b7.jpg" alt="">
-            <button class="next">&#10095;</button>
+    <section class="container">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://i.pinimg.com/originals/49/86/d7/4986d7c7b927ef7dfc9955f1d05267b7.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/564x/cf/4d/4d/cf4d4d5884d5eb954eeeeed5e8628ac9.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/564x/56/50/b8/5650b8c8be8dffac51ae16adc8ee64a4.jpg" class="d-block w-100" alt="...">
+                </div>
+            </div>
         </div>
     </section>
     
+
 
 
     <footer class="redes">
@@ -60,7 +67,21 @@
             <img src="https://img.icons8.com/win10/200/FFFFFF/youtube-squared.png" alt="">
         </a>
     </footer>
-    <script src="carousel.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#carouselExampleSlidesOnly').carousel();
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="index.js"></script>
 </body>
 
 </html>
