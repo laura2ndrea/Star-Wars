@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icono.png">
+    <link rel="stylesheet" href="starships.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Star Wars Starships</title>
+</head>
+
+<body>
+    <header>
+        <h1 class="text-center py-3">Starships</h1>
+    </header>
+
+    <main class="container my-4">
+        <!-- Barra de búsqueda -->
+        <section class="row mb-4">
+            <div class="col-md-8 offset-md-2">
+                <div class="input-group">
+                    <input type="text" id="barraBusqueda" class="form-control" placeholder="Buscar starship por nombre">
+                    <div class="input-group-append">
+                        <button id="botonBusqueda" class="btn btn-primary">Buscar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="row">
+            <!-- Columna de Filtros -->
+            <aside id="filtrosColumna" class="col-md-2 mb-4">
+                <div class="filtros">
+                    <h5>Filtros</h5>
+                    <form id="formFiltros">
+                        <!-- Filtros por modelo -->
+                        <div class="mb-3">
+                            <label for="filtroModelo" class="form-label">Modelo</label>
+                            <input type="text" id="filtroModelo" class="form-control" placeholder="Ej. X-wing">
+                        </div>
+
+                        <!-- Filtros por fabricante -->
+                        <div class="mb-3">
+                            <label for="filtroFabricante" class="form-label">Fabricante</label>
+                            <input type="text" id="filtroFabricante" class="form-control" placeholder="Ej. Incom">
+                        </div>
+
+                        <!-- Filtros por costo -->
+                        <div class="mb-3">
+                            <label for="filtroCosto" class="form-label">Costo en Créditos</label>
+                            <input type="text" id="filtroCosto" class="form-control" placeholder="Ej. 1000-5000">
+                        </div>
+
+                        <!-- Filtros por velocidad -->
+                        <div class="mb-3">
+                            <label for="filtroVelocidad" class="form-label">Velocidad Máxima</label>
+                            <input type="text" id="filtroVelocidad" class="form-control" placeholder="Ej. 100-1000">
+                        </div>
+
+                        <button type="button" id="aplicarFiltros" class="btn btn-primary mt-3">Aplicar filtros</button>
+                    </form>
+                </div>
+            </aside>
+
+            <!-- Grid de starships -->
+            <section id="containerStarships" class="col-md-10 row">
+                <!-- Aquí se verán las naves dentro de tarjetas -->
+            </section>
+        </section>
+
+        <!-- Páginas -->
+        <nav aria-label="Páginas de las naves" id="paginas">
+            <ul class="pagination justify-content-center mt-4">
+                <!-- Aquí se generarán las páginas correspondientes -->
+            </ul>
+        </nav>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal fade" id="detalleStarshipModal" tabindex="-1" aria-labelledby="detalleStarshipModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detalleStarshipModalLabel">Detalles del Starship</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="starshipsDetalles">
+                    <!-- Aquí se mostrará la información detallada de las naves -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; Star Wars</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="starships.js"></script>
+</body>
+
+</html>
