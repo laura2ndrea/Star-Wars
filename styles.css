@@ -165,9 +165,91 @@ body {
     }
 }*/
 
-@media (max-width: 700px) {
+/*@media (max-width: 700px) {
     .navegador {
         display: none;
     }
 
+}*/
+
+.container1 {
+    width: 80%;
+    height: 60vh;
+    background-color: rgba(223, 223, 223, 0); 
+    position: relative;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .container1 {
+        margin-top: 80px;
+        width: 90%; 
+        height: 40vh; 
+        padding: 10px;
+    }
+}
+
+.carousel {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    position: relative;
+    border: 2px solid #ffffff;
+    border-radius: 20px;
+}
+
+.carousel img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    display: none;
+}
+
+.carousel img.active {
+    display: block;
+    opacity: 1;
+}
+
+
+.carousel img.transition {
+    transform: translateX(-50%) scale(1);
+}
+
+.carousel .prev, .carousel .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.carousel .prev {
+    left: 10px;
+}
+
+.carousel .next {
+    right: 10px;
+}
+
+@media (max-width: 600px) {
+    .carousel .prev, .carousel .next {
+        padding: 5px;
+        font-size: 16px;
+    }
 }
