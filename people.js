@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
             mostrarPersonajes(paginaActual);
             crearPaginas();
         } else {
-            containerPersonajes.innerHTML = '<p class="text-center">No characters found</p>';
+            containerPersonajes.innerHTML = '<p class="text-center text-white">No characters found</p>';
             paginasTodas.innerHTML = '';
         }
     });
@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function () {
             mostrarPersonajes(paginaActual);
             crearPaginas();
         } else {
-            containerPersonajes.innerHTML = '<p class="text-center">No characters found</p>';
+            containerPersonajes.innerHTML = '<p class="text-cesnter text-white">No characters found</p>';
             paginasTodas.innerHTML = '';
         }
     });

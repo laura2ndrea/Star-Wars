@@ -13,10 +13,23 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+    margin: 0; /* Elimina el margen predeterminado del body */
+}
+
+
+/* Asegura que el contenido principal ocupe el espacio disponible */
+main {
+    flex: 1; /* Permite que el main ocupe el espacio disponible entre el header y el footer */
+}
 body {
     display: flex;
     flex-direction: column;
     background: radial-gradient(ellipse at bottom, #1b2735 0%,#090a0f 100%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
     font-family: "Roboto Condensed", sans-serif;
     color: black;
 }
@@ -86,10 +99,6 @@ h1:hover{
 
 .btn {
     align-self: start; /* Centra el botón dentro de la tarjeta */
-}
-
-.main {
-    flex: 1; 
 }
 
 footer {
