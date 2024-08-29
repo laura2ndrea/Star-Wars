@@ -95,3 +95,19 @@ h1:hover{
 footer {
     border-top: solid white thin;
 }
+
+@media (max-width: 330px) {
+    body {
+        display: none;
+    }
+
+    html {
+        content: "";
+        display: block;
+        width: 100vw;
+        height: 100vh;
+        background-image: url('no-disponible.png');
+        background-size: cover;
+        background-position: center;
+    }
+}
