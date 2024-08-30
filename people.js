@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
             personajes = personajes.concat(data.results);
 
             if (data.next) {
-                await obtenerPersonajes(data.next); // Esperar a que se resuelva la llamada recursiva
+                await obtenerPersonajes(data.next); 
             } else {
                 personajesMostrados = personajes;
                 mostrarPersonajes();
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <img src="${urlImagen}" class="card-img-top" alt="${personaje.name}" onerror="this.onerror=null; this.src='${urlImagenDefault}';">
                 <div class="card-body">
                     <h5 class="card-title">${personaje.name}</h5>
-                    <button class="btn btn-primary" data-url="${personaje.url}">Ver detalles</button>
+                    <button class="btn btn-primary" data-url="${personaje.url}">View details</button>
                 </div>
             </div>
         `;
@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function () {
             mostrarPersonajes(paginaActual);
             crearPaginas();
         } else {
-            containerPersonajes.innerHTML = '<p class="text-cesnter text-white">No characters found</p>';
+            containerPersonajes.innerHTML = '<p class="text-center text-white">No characters found</p>';
             paginasTodas.innerHTML = '';
         }
     });

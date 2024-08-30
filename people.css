@@ -1,40 +1,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 
 @font-face {
-    font-family: 'StarJedi'; 
+    font-family: 'StarJedi';
     src:
         url('Starjedi.ttf') format('truetype'),
-        url('Starjhol.ttf') format('truetype');  
+        url('Starjhol.ttf') format('truetype');
 }
 
-*{
-    margin: 0; 
+* {
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     height: 100%;
-    margin: 0; /* Elimina el margen predeterminado del body */
+    margin: 0;
+    /* Elimina el margen predeterminado del body */
 }
 
+header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+}
 
 /* Asegura que el contenido principal ocupe el espacio disponible */
 main {
-    flex: 1; /* Permite que el main ocupe el espacio disponible entre el header y el footer */
+    flex: 1;
+    /* Permite que el main ocupe el espacio disponible entre el header y el footer */
 }
+
 body {
     display: flex;
     flex-direction: column;
-    background: radial-gradient(ellipse at bottom, #1b2735 0%,#090a0f 100%);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed; 
     font-family: "Roboto Condensed", sans-serif;
     color: black;
 }
 
-h1{
+video{
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    z-index: -1; 
+}
+
+h1 {
     font-family: 'StarJedi';
     color: white;
     text-shadow:
@@ -46,36 +63,40 @@ h1{
     transition: text-shadow 0.3s;
 }
 
-h1:hover{
+
+h1:hover {
     text-shadow:
         0 0 10px #fff,
         0 0 20px #fff,
         0 0 30px #fff,
         0 0 40px #F7C826,
-        0 0 50px #F7C826, 
+        0 0 50px #F7C826,
         0 0 60px #F7C826;
 }
 
-.filtros{
+.filtros {
     padding: 10px;
-    color: white; 
+    color: white;
     border: solid white thin;
     border-radius: 15px;
     font-size: calc(0.8rem + 0.1vw);
 }
 
-.filtros h5{
+.filtros h5 {
     text-align: center;
 }
 
-.filtros h6{
+.filtros h6 {
     text-align: center;
 }
 
 .btn-filtros {
-    padding: 0.5rem 1rem; /* Ajusta el padding */
-    width: auto; /* Ajusta el ancho del botón */
-    max-width: 150px; /* Máximo ancho del botón */
+    padding: 0.5rem 1rem;
+    /* Ajusta el padding */
+    width: auto;
+    /* Ajusta el ancho del botón */
+    max-width: 150px;
+    /* Máximo ancho del botón */
 }
 
 .personaje-tarjeta {
@@ -94,11 +115,13 @@ h1:hover{
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Esto empuja el botón hacia el fondo */
+    justify-content: space-between;
+    /* Esto empuja el botón hacia el fondo */
 }
 
 .btn {
-    align-self: start; /* Centra el botón dentro de la tarjeta */
+    align-self: start;
+    /* Centra el botón dentro de la tarjeta */
 }
 
 footer {
