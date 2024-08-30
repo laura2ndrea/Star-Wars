@@ -1,44 +1,45 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Elementos del DOM que se utilizarán
-    const barraBusqueda = document.getElementById('barraBusqueda');
-    const botonBusqueda = document.getElementById('botonBusqueda');
-    const containerPersonajes = document.getElementById('containerPersonajes');
-    const personajesDetalles = document.getElementById('personajesDetalles');
-    const paginasTodas = document.querySelector('#paginas .pagination');
-    const aplicarFiltros = document.getElementById('aplicarFiltros'); // Añadido para el botón de filtros
+    // Elementos del DOM que se utilizaran 
+    const barraBusqueda = document.getElementById('barraBusqueda'); // Input para buscar personajes
+    const botonBusqueda = document.getElementById('botonBusqueda'); // Botón para iniciar la búsqueda
+    const containerPersonajes = document.getElementById('containerPersonajes'); // Contenedor donde se muestran las tarjetas
+    const personajesDetalles = document.getElementById('personajesDetalles'); // Contenedor para mostrar los detalles de los personajes
+    const paginasTodas = document.querySelector('#paginas .pagination'); // Contenedor para las páginas
+    const aplicarFiltros = document.getElementById('aplicarFiltros'); // Botón para aplicar los filtros 
 
-    let personajes = [];
-    let personajesMostrados = [];
-    let paginaActual = 1;
-    let itemsPorPagina = 9;
+    let personajes = []; // Array para almacenar los datos desde el API
+    let personajesMostrados = []; // Array para mostrar los datos que se muestran
+    let paginaActual = 1; //Pagina actual de todas las páginas 
+    let itemsPorPagina = 9; // Número de personajes mostrados por página 
 
+    // Función para obtener todos los personajes desde la API 
     async function obtenerPersonajes(url = 'https://swapi.dev/api/people/') {
         try {
-            const respuesta = await fetch(url);
-            const data = await respuesta.json();
-            personajes = personajes.concat(data.results);
+            const respuesta = await fetch(url); // Obtengo los datos de la API
+            const data = await respuesta.json(); // Se convierten en JSON 
+            personajes = personajes.concat(data.results); // Se van guardando los personajes en el array
 
             if (data.next) {
-                await obtenerPersonajes(data.next); 
+                await obtenerPersonajes(data.next); // En caso de hacer mas páginas llamar recursivamente a la función
             } else {
-                personajesMostrados = personajes;
-                mostrarPersonajes();
-                crearPaginas();
+                personajesMostrados = personajes; // Cuando se obtiene todos los personajes, se guardan en el array de los personajes a mostrar 
+                mostrarPersonajes(); // Función que muestra los personajes en la página 
+                crearPaginas(); // Función que crea los controles de paginación
             }
         } catch (error) {
-            console.error('Error al traer los personajes:', error);
+            console.error('Error al traer los personajes:', error); // Manejo de errores en caso de alguna falla 
         }
     }
 
     function mostrarPersonajes(pagina = 1) {
-        containerPersonajes.innerHTML = '';
-        const inicio = (pagina - 1) * itemsPorPagina;
-        const fin = inicio + itemsPorPagina;
-        const personajesPorPagina = personajesMostrados.slice(inicio, fin);
+        containerPersonajes.innerHTML = ''; // Limpia el contenedor de personajes
+        const inicio = (pagina - 1) * itemsPorPagina; // Calcula el indice de inicio para la página actual  
+        const fin = inicio + itemsPorPagina; // Calcula el indice final de la página actual 
+        const personajesPorPagina = personajesMostrados.slice(inicio, fin); // Obtiene los personajes para la página actual 
 
         personajesPorPagina.forEach(personaje => {
-            const tarjetaPersonaje = document.createElement('div');
-            tarjetaPersonaje.className = 'col-md-4 mb-4';
+            const tarjetaPersonaje = document.createElement('div'); // Crea un div para la tarjeta del personaje
+            tarjetaPersonaje.className = 'col-md-4 mb-4'; // Aplica la clase de Bootstrap para el diseño de la tarjeta
 
             // ID del personaje para la URL de la imagen
             const idPersonaje = obtenerIdPersonaje(personaje.url);
@@ -54,25 +55,28 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
             </div>
         `;
-            containerPersonajes.appendChild(tarjetaPersonaje);
+            containerPersonajes.appendChild(tarjetaPersonaje); // Se añade la tarjeta al contenedor de personajes
         });
 
+        // Se añade un evento al hacer clic a cada uno de los botenes de las tarjetas de los personajes
         document.querySelectorAll('.personaje-tarjeta button').forEach(button => {
             button.addEventListener('click', function () {
                 const personajeURL = this.getAttribute('data-url');
-                mostrarDetallesPersonajes(personajeURL);
+                mostrarDetallesPersonajes(personajeURL); // Se muestran los detalles del personaje al hacer clic
             });
         });
     }
 
+    // Función para extraer el ID del personaje de la URL 
     function obtenerIdPersonaje(url) {
         const partes = url.split('/');
-        return partes[partes.length - 2];
+        return partes[partes.length - 2]; // Se retorna el penútimo elemento que es el ID 
     }
 
+    // Función para crear los controles de páginación 
     function crearPaginas() {
-        const totalPaginas = Math.ceil(personajesMostrados.length / itemsPorPagina);
-        paginasTodas.innerHTML = '';
+        const totalPaginas = Math.ceil(personajesMostrados.length / itemsPorPagina); // Calcula el número total de páginas
+        paginasTodas.innerHTML = ''; // Limpia el contenedor de la páginación 
 
         for (let i = 1; i <= totalPaginas; i++) {
             const itemPagina = document.createElement('li');
