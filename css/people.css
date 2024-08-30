@@ -1,37 +1,22 @@
+/* Fuente para el titulo y demás texto*/
 @import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 
 @font-face {
     font-family: 'StarJedi';
     src:
-        url('Starjedi.ttf') format('truetype'),
-        url('Starjhol.ttf') format('truetype');
+        url('../fuentes/Starjedi.ttf') format('truetype'),
+        url('../fuentes/Starjhol.ttf') format('truetype');
 }
 
+/* Estilos para la página en general*/ 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
     height: 100%;
-    margin: 0;
-    /* Elimina el margen predeterminado del body */
-}
-
-header {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 20px;
-}
-
-/* Asegura que el contenido principal ocupe el espacio disponible */
-main {
-    flex: 1;
-    /* Permite que el main ocupe el espacio disponible entre el header y el footer */
 }
 
 body {
@@ -41,6 +26,7 @@ body {
     color: black;
 }
 
+/* Estilos para el video de fondo*/
 video{
     position: fixed; 
     top: 0;
@@ -49,6 +35,19 @@ video{
     height: 100%;
     object-fit: cover; 
     z-index: -1; 
+}
+
+main {
+    flex: 1;
+}
+
+/* Estilos para el header*/
+header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
 }
 
 h1 {
@@ -63,7 +62,6 @@ h1 {
     transition: text-shadow 0.3s;
 }
 
-
 h1:hover {
     text-shadow:
         0 0 10px #fff,
@@ -74,6 +72,7 @@ h1:hover {
         0 0 60px #F7C826;
 }
 
+/*Estilos para la columna de filtros*/
 .filtros {
     padding: 10px;
     color: white;
@@ -92,22 +91,18 @@ h1:hover {
 
 .btn-filtros {
     padding: 0.5rem 1rem;
-    /* Ajusta el padding */
     width: auto;
-    /* Ajusta el ancho del botón */
     max-width: 150px;
-    /* Máximo ancho del botón */
 }
 
+/*Estilos para las tarjetas de los personajes*/
 .personaje-tarjeta {
-    /* Asegura que todas las tarjetas tengan el mismo tamaño */
     display: flex;
     flex-direction: column;
     height: 100%;
 }
 
 .card-img-top {
-    /* Asegura que la imagen cubra el área sin deformar */
     object-fit: cover;
 }
 
@@ -116,18 +111,18 @@ h1:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* Esto empuja el botón hacia el fondo */
 }
 
 .btn {
     align-self: start;
-    /* Centra el botón dentro de la tarjeta */
 }
 
+/*Estilos para el footer de la página*/
 footer {
     border-top: solid white thin;
 }
 
+/*Estilos para cuando la página sea muy pequeña*/
 @media (max-width: 330px) {
     body {
         display: none;
