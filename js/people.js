@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const aplicarFiltros = document.getElementById('aplicarFiltros'); // Botón para aplicar los filtros 
 
     let personajes = []; // Array para almacenar los datos desde el API
-    let personajesMostrados = []; // Array para mostrar los datos que se muestran
+    let personajesMostrados = []; // Array para guardar los datos que se muestran
     let paginaActual = 1; //Pagina actual de todas las páginas 
     let itemsPorPagina = 9; // Número de personajes mostrados por página 
 
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
             containerPersonajes.appendChild(tarjetaPersonaje); // Se añade la tarjeta al contenedor de personajes
         });
 
-        // Se añade un evento al hacer clic a cada uno de los botenes de las tarjetas de los personajes
+        // Se añade un evento al hacer clic a cada uno de los botones de las tarjetas de los personajes
         document.querySelectorAll('.personaje-tarjeta button').forEach(button => {
             button.addEventListener('click', function () {
                 const personajeURL = this.getAttribute('data-url');
