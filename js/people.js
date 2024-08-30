@@ -79,23 +79,25 @@ document.addEventListener('DOMContentLoaded', function () {
         paginasTodas.innerHTML = ''; // Limpia el contenedor de la páginación 
 
         for (let i = 1; i <= totalPaginas; i++) {
-            const itemPagina = document.createElement('li');
-            itemPagina.className = `page-item ${i === paginaActual ? 'active' : ''}`;
-            itemPagina.innerHTML = `<a class='page-link' href='#'>${i}</a>`;
-            paginasTodas.appendChild(itemPagina);
+            const itemPagina = document.createElement('li'); // Nuevo elemento de lista para la pagina
+            itemPagina.className = `page-item ${i === paginaActual ? 'active' : ''}`; // Aplicar la clave activa a la página actual 
+            itemPagina.innerHTML = `<a class='page-link' href='#'>${i}</a>`; // Se crea el enlace para la pagina 
+            paginasTodas.appendChild(itemPagina); // Se añade el elemento al contenedor de paginación 
 
+            // Evento de clic al elemento de la lista de la página
             itemPagina.addEventListener('click', function (e) {
-                e.preventDefault();
-                paginaActual = i;
-                mostrarPersonajes(paginaActual);
-                crearPaginas(); // Para actualizar la clase active en la paginación
+                e.preventDefault(); // Previene el comportamiento por defecto del enlace
+                paginaActual = i; // Se actualiza la página actual 
+                mostrarPersonajes(paginaActual); // Muestra los personajes de la nueva página 
+                crearPaginas(); // Actualiza la paginación para reflejar la página actual 
             });
         }
     }
 
+    // Función para mostrar los detalles de los personajes en el modal 
     function mostrarDetallesPersonajes(url) {
         fetch(url)
-            .then(response => response.json())
+            .then(response => response.json()) 
             .then(data => {
                 personajesDetalles.innerHTML = `
                     <h2>${data.name}</h2>
@@ -107,30 +109,33 @@ document.addEventListener('DOMContentLoaded', function () {
                     <p><strong>Birth year:</strong> ${data.birth_year}</p>
                     <p><strong>Gender:</strong> ${data.gender}</p>
                 `;
-                const detallePersonajeModal = new bootstrap.Modal(document.getElementById('detallePersonajeModal')); 
-                detallePersonajeModal.show(); 
+                const detallePersonajeModal = new bootstrap.Modal(document.getElementById('detallePersonajeModal')); // Instancia del componente modal
+                detallePersonajeModal.show(); // Muestra el modal con los detalles del personaje
             })
-            .catch(error => console.error('Error al mostrar los detalles del personaje', error));
+            .catch(error => console.error('Error al mostrar los detalles del personaje', error)); // Manejo de errores 
     }
 
+    // Evento del boton de busqueda
     botonBusqueda.addEventListener('click', function () {
-        const query = barraBusqueda.value.toLowerCase();
-        personajesMostrados = personajes.filter(personaje => personaje.name.toLowerCase().includes(query));
+        const query = barraBusqueda.value.toLowerCase(); // Se obtiene el valor de búsqueda en minuscula
+        personajesMostrados = personajes.filter(personaje => personaje.name.toLowerCase().includes(query)); // Se filtran los personajes por nombre
 
         if (personajesMostrados.length > 0) {
-            paginaActual = 1;
-            mostrarPersonajes(paginaActual);
-            crearPaginas();
+            paginaActual = 1; // Se resetea a la primera página 
+            mostrarPersonajes(paginaActual); // Se muestran los personajes filtrados 
+            crearPaginas(); // Se crean los controles de paginación 
         } else {
-            containerPersonajes.innerHTML = '<p class="text-center text-white">No characters found</p>';
-            paginasTodas.innerHTML = '';
+            containerPersonajes.innerHTML = '<p class="text-center text-white">No characters found</p>'; // Mensaje si no se encuentran los personajes
+            paginasTodas.innerHTML = ''; // Se limpian los controles de paginación 
         }
     });
 
+    // Evento para el botón de aplicar filtros 
     aplicarFiltros.addEventListener('click', async function () {
-        const filtros = document.getElementsByName('filtro');
+        const filtros = document.getElementsByName('filtro'); // Se obtienen todos los filtros 
         let filtro = null;
 
+        // Se determina que filtro esta seleccionado 
         for (let i = 0; i < filtros.length; i++) {
             if (filtros[i].checked) {
                 filtro = filtros[i].value;
@@ -146,9 +151,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
             for (let personaje of personajes) {
                 if (filtro === personaje.gender.toLowerCase()) {
-                    personajesMostrados.push(personaje);
+                    personajesMostrados.push(personaje); // Filtra por genero 
                 } else if (["tatooine", "alderaan", "naboo", "human", "droid", "wookie"].includes(filtro)) {
                     switch (filtro) {
+                        // Filtra por plnaneta 
                         case "tatooine":
                             if (personaje.homeworld === "https://swapi.dev/api/planets/1/")
                                 personajesMostrados.push(personaje);
@@ -161,6 +167,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             if (personaje.homeworld === "https://swapi.dev/api/planets/8/")
                                 personajesMostrados.push(personaje);
                             break;
+                        // Filtra por especie 
                         case "human":
                             personaje.species.forEach(url => {
                                 if (url === "https://swapi.dev/api/species/1/") {
@@ -187,12 +194,13 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
+        // Actualiza la vista con los personajes filtrados 
         if (personajesMostrados.length > 0) {
             paginaActual = 1;
             mostrarPersonajes(paginaActual);
             crearPaginas();
         } else {
-            containerPersonajes.innerHTML = '<p class="text-center text-white">No characters found</p>';
+            containerPersonajes.innerHTML = '<p class="text-center text-white">No characters found</p>'; // En caso de que no se encuentren personajes
             paginasTodas.innerHTML = '';
         }
     });
