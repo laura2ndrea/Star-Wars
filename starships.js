@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const urlImagenDefault = 'https://starwars-visualguide.com/assets/img/placeholder.jpg';
 
             tarjetaStarship.innerHTML = `
-            <div class="card starship-tarjeta">
+            <div class="card_starships_tarjeta">
                 <img src="${urlImagen}" class="card-img-top" alt="${starship.name}" onerror="this.onerror=null; this.src='${urlImagenDefault}';">
                 <div class="card-body">
                     <h5 class="card-title">${starship.name}</h5>

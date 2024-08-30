@@ -26,8 +26,7 @@ main {
 body {
     display: flex;
     flex-direction: column;
-    background-image: url("https://wallpaper.forfun.com/fetch/fb/fb8e9d9b4cb029a3a8ce95d3bec6839a.jpeg");
-    background-image: url("https://wallpapers.com/images/hd/star-wars-landscape-4750-x-3590-6tucvp40mu9yqofh.jpg");
+    background-image: url("https://i.pinimg.com/originals/c3/be/73/c3be73aeb65dadb438873c27c4527a23.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed; 

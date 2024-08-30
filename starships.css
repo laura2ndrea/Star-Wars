@@ -26,7 +26,7 @@ main {
 body {
     display: flex;
     flex-direction: column;
-    background-image: url("https://wallpapers.com/images/hd/star-wars-landscape-4750-x-3590-6tucvp40mu9yqofh.jpg");
+    background-image: url("https://i.pinimg.com/originals/c3/be/73/c3be73aeb65dadb438873c27c4527a23.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed; 
@@ -99,6 +99,17 @@ h1:hover{
 
 .btn {
     align-self: start; /* Centra el botón dentro de la tarjeta */
+}
+
+.card_starships_tarjeta{
+    background: rgba(255, 255, 255, 0.377);
+    border-radius: 20px;
+    overflow: hidden;
+}
+.card_starships_tarjeta button{
+    border-radius: 10px;
+    background-color: rgb(170, 44, 6);
+    border:2px solid rgb(170, 44, 6);
 }
 
 footer {
