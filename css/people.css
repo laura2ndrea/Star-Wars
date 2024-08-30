@@ -64,21 +64,22 @@ h1 {
 
 h1:hover {
     text-shadow:
-        0 0 10px #fff,
-        0 0 20px #fff,
-        0 0 30px #fff,
-        0 0 40px #F7C826,
-        0 0 50px #F7C826,
-        0 0 60px #F7C826;
+    0 0 5px #f8f8f8,    
+    0 0 10px #ffff66,   
+    0 0 20px #ffff66,  
+    0 0 30px #ffcc00,   
+    0 0 40px #ffcc00,   
+    0 0 50px #ff9900,   
+    0 0 60px #ff9900;  
 }
 
 /*Estilos para la columna de filtros*/
 .filtros {
     padding: 10px;
-    color: white;
-    border: solid white thin;
+    color: black; 
     border-radius: 15px;
     font-size: calc(0.8rem + 0.1vw);
+    background-color: white; 
 }
 
 .filtros h5 {
