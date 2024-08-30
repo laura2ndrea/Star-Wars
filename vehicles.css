@@ -18,18 +18,22 @@ html, body {
     margin: 0; /* Elimina el margen predeterminado del body */
 }
 
+/* Estilos para el video de fondo*/
+video{
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    z-index: -1; 
+}
 
 /* Asegura que el contenido principal ocupe el espacio disponible */
 main {
     flex: 1; /* Permite que el main ocupe el espacio disponible entre el header y el footer */
 }
-body {
-    display: flex;
-    flex-direction: column;
-    background-image: url("https://i.pinimg.com/originals/c3/be/73/c3be73aeb65dadb438873c27c4527a23.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed; 
+body { 
     font-family: "Roboto Condensed", sans-serif;
     color: black;
 }
