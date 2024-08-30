@@ -26,7 +26,8 @@ main {
 body {
     display: flex;
     flex-direction: column;
-    background: radial-gradient(ellipse at bottom, #1b2735 0%,#090a0f 100%);
+    background-image: url("https://wallpaper.forfun.com/fetch/fb/fb8e9d9b4cb029a3a8ce95d3bec6839a.jpeg");
+    background-image: url("https://wallpapers.com/images/hd/star-wars-landscape-4750-x-3590-6tucvp40mu9yqofh.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed; 
@@ -119,4 +120,19 @@ footer {
         background-size: cover;
         background-position: center;
     }
+}
+
+.card_pelicula_tarjeta{
+    background: rgba(255, 255, 255, 0.377);
+    border-radius: 20px;
+    overflow: hidden;
+}
+.card_pelicula_tarjeta button{
+    border-radius: 10px;
+    background-color: rgb(170, 44, 6);
+    border:2px solid rgb(170, 44, 6);
+}
+.btn.btn-primary.mt-3 {
+    background-color: rgb(4, 17, 136);
+    border:2px solid rgb(4, 17, 136);
 }

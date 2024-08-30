@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const urlImagenDefault = 'https://starwars-visualguide.com/assets/img/placeholder.jpg'; // URL de la imagen por defecto
 
             tarjetaPelicula.innerHTML = `
-            <div class="card pelicula-tarjeta">
+            <div class="card_pelicula_tarjeta">
                 <img src="${urlImagen}" class="card-img-top" alt="${pelicula.title}" onerror="this.onerror=null; this.src='${urlImagenDefault}';">
                 <div class="card-body">
                     <h5 class="card-title">${pelicula.title}</h5>

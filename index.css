@@ -8,6 +8,7 @@ body {
     background-image: url("/img/Start Wars.jpg");
     background-size: cover;
     font-family: "/fuentes/OpenSans-VariableFont_wdth,wght.ttf", "sans-serif";
+    overflow-x: hidden;
 }
 
 @font-face {
@@ -80,6 +81,28 @@ body {
     color: #F7C826;
 }
 
+
+
+/* Estilos de los enlaces del menú */
+.nave ul {
+    list-style: none;
+    text-align: center;
+}
+
+.nave ul li {
+    margin: 10px 0; /* Reduce el margen entre los items */
+}
+
+.nave ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px; /* Reduce el tamaño del texto */
+    transition: color 0.3s;
+}
+
+.nave ul li a:hover {
+    color: #F7C826;
+}
 /* Mostrar el menú cuando esté activo */
 .menu-overlay.active {
     display: flex;
@@ -101,20 +124,20 @@ body {
 }
 
 .menu {
-    margin: 2.5%;
+    margin: 1.5%;
 }
 
 .menu h1 {
     font-family: "/fuentes/SF Distant Galaxy AltOutline.ttf", "sans-serif";
     text-align: center;
     color: rgb(255, 217, 0);
-    font-size: 5em;
+    font-size: 5.5em;
 }
 
 .barra {
     font-size: 1.5em;
     text-align: center;
-    padding: 2%;
+    padding: 1%;
 }
 
 .barra li {
@@ -139,7 +162,7 @@ body {
 
 .carousel-item img {
     width: 100%;
-    height: auto; /* Mantiene la proporción de aspecto */
+    height: 50vh; /* Mantiene la proporción de aspecto */
 }
 
 @media (max-width: 768px) {
@@ -154,6 +177,7 @@ body {
 .redes {
     margin: 1%;
     text-align: center;
+    width: 100%;
 }
 
 .redes h2 {
@@ -163,20 +187,27 @@ body {
 }
 
 .redes img {
-    width: 2%;
-    height: 25px;
+    width: 3vh;
+    height: 3vh;
     margin: 2%;
 }
 
-/*@media (min-width: 659px) {
+@media (min-width: 659px) {
     .hamburguer-menu {
         display: none;
     }
-}*/
+}
 
-/*@media (max-width: 700px) {
-    .navegador {
+@media (max-width: 700px) {
+    .nave {
         display: none;
     }
+    .menu h1 {
+        font-family: "/fuentes/SF Distant Galaxy AltOutline.ttf", "sans-serif";
+        text-align: center;
+        color: rgb(255, 217, 0);
+        font-size: 3em;
+        padding-top: 4%;
+    }
 
-}*/
+}
