@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function mostrarPlanetas(pagina = 1) {
-        containerPersonajes.innerHTML = ''; // Limpia el contenedor de planetas
+        containerPlanetas.innerHTML = ''; // Limpia el contenedor de planetas
         const inicio = (pagina - 1) * itemsPorPagina; // Calcula el indice de inicio para la página actual  
         const fin = inicio + itemsPorPagina; // Calcula el indice final de la página actual 
         const planetasPorPagina = planetasMostrados.slice(inicio, fin); // Obtiene los planetas para la página actual 
