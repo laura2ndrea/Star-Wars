@@ -92,7 +92,7 @@ h1:hover {
     /* Asegura que todas las tarjetas tengan el mismo tamaño */
     display: flex;
     flex-direction: column;
-    height: 100%; 
+    min-height: 310px;
     background: rgba(255, 255, 255, 0.377);
     border-radius: 20px;
     overflow: hidden;
