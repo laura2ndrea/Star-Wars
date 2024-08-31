@@ -10,7 +10,7 @@
 
     <script>
         async function fetchPlanets() {
-            const url = 'https://swapi.dev/api/films/';
+            const url = 'https://swapi.dev/api/species/';
             try {
                 const response = await fetch(url);
                 if (!response.ok) {
@@ -28,7 +28,7 @@
 
             if (planets) {
                 planets.forEach(planet => {
-                    console.log(`${planet.title}: Climate - ${planet.url}`);
+                    console.log(`${planet.language}`);
                 });
             }
         }

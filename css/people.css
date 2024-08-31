@@ -134,7 +134,7 @@ footer {
         display: block;
         width: 100vw;
         height: 100vh;
-        background-image: url('no-disponible.png');
+        background-image: url('../recursos/no-disponible.png');
         background-size: cover;
         background-position: center;
     }
