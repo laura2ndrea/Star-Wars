@@ -2,10 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 
 @font-face {
-    font-family: 'StarJedi';
+    font-family: 'SFDistant';
     src:
-        url('../fuentes/Starjedi.ttf') format('truetype'),
-        url('../fuentes/Starjhol.ttf') format('truetype');
+        url('../fuentes/SF_Distant_Galaxy_AltOutline.ttf') format('truetype'),
 }
 
 /* Estilos para la página en general*/ 
@@ -51,14 +50,9 @@ header {
 }
 
 h1 {
-    font-family: 'StarJedi';
-    color: white;
-    text-shadow:
-        0 0 5px #f8f8f8,    
-        0 0 10px #ffff66,   
-        0 0 20px #ffff66,  
-        0 0 30px #ffcc00,   
-        0 0 40px #ffcc00;   
+    font-family: 'SFDistant';
+    font-weight: bold;
+    color: rgb(255, 217, 0) !important; 
     font-size: calc(3.5rem + 1vw);
     text-align: center;
     transition: text-shadow 0.3s;
@@ -66,14 +60,12 @@ h1 {
 
 h1:hover {
     text-shadow:
-        0 0 5px #ffffff,    
-        0 0 10px #ffff99,   
-        0 0 20px #ffff66,   
-        0 0 30px #ffff33,   
-        0 0 40px #ffcc00,  
-        0 0 50px #ffcc00,   
-        0 0 60px #ff9900,   
-        0 0 70px #ff9900;   
+        0 0 5px #f8f8f8,    
+        0 0 10px #ffff66,   
+        0 0 20px #ffff66,  
+        0 0 30px #ffcc00,   
+        0 0 40px #ffcc00,
+        0 0 50px #FFD900;  
 }
 
 /*Estilos para la columna de filtros*/
@@ -82,7 +74,7 @@ h1:hover {
     color: black; 
     border-radius: 15px;
     font-size: calc(0.8rem + 0.1vw);
-    background-color: white; 
+    background-color: rgba(255, 255, 255, 0.377);
 }
 
 .filtros h5 {
@@ -104,6 +96,13 @@ h1:hover {
     display: flex;
     flex-direction: column;
     height: 100%;
+    background: rgba(255, 255, 255, 0.377);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.personaje-tarjeta button{
+    border-radius: 10px;
 }
 
 .card-img-top {
