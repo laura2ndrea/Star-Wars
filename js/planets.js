@@ -150,9 +150,9 @@ document.addEventListener('DOMContentLoaded', function () {
             planetasMostrados = [];
 
             for (let planeta of planetas) {
-                if (planeta.climate.includes(filtro)) {
+                if (planeta.climate.toLowerCase().includes(filtro)) {
                     planetasMostrados.push(planeta); // Filtra por clima
-                } else if (planeta.terrain.includes(filtro)){
+                } else if (planeta.terrain.toLowerCase().includes(filtro)){
                     planetasMostrados.push(planeta); // Filtra por terreno
                 }
                 else if (["hope", "jedi", "clones"].includes(filtro)) {

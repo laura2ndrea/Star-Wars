@@ -54,9 +54,11 @@ h1 {
     font-family: 'StarJedi';
     color: white;
     text-shadow:
-        0 0 5px #fff,
-        0 0 10px #fff,
-        0 0 15px #fff;
+        0 0 5px #f8f8f8,    
+        0 0 10px #ffff66,   
+        0 0 20px #ffff66,  
+        0 0 30px #ffcc00,   
+        0 0 40px #ffcc00;   
     font-size: calc(3.5rem + 1vw);
     text-align: center;
     transition: text-shadow 0.3s;
@@ -64,13 +66,14 @@ h1 {
 
 h1:hover {
     text-shadow:
-    0 0 5px #f8f8f8,    
-    0 0 10px #ffff66,   
-    0 0 20px #ffff66,  
-    0 0 30px #ffcc00,   
-    0 0 40px #ffcc00,   
-    0 0 50px #ff9900,   
-    0 0 60px #ff9900;  
+        0 0 5px #ffffff,    
+        0 0 10px #ffff99,   
+        0 0 20px #ffff66,   
+        0 0 30px #ffff33,   
+        0 0 40px #ffcc00,  
+        0 0 50px #ffcc00,   
+        0 0 60px #ff9900,   
+        0 0 70px #ff9900; 
 }
 
 /*Estilos para la columna de filtros*/
