@@ -106,6 +106,13 @@ footer {
 footer img{
     width: 2rem;
     margin-left: 20px;
+    transition: width 0.3s;
+}
+
+footer img:hover{
+    width: 2rem;
+    margin-left: 20px;
+    width: 2.5rem;
 }
 
 /* Ocultar menu hamburguesa */
