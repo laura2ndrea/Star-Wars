@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // ID del planeta para la URL de la imagen
             const idPlaneta = obtenerIdPlaneta(planeta.url);
             const urlImagen = `https://starwars-visualguide.com/assets/img/planets/${idPlaneta}.jpg`;
-            const urlImagenDefault = 'https://starwars-visualguide.com/assets/img/placeholder.jpg'; // URL de la imagen por defecto
+            const urlImagenDefault = '../recursos/no-imagen2.png'; // URL de la imagen por defecto
 
             tarjetaPlaneta.innerHTML = `
             <div class="card planeta-tarjeta">

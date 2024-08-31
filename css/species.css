@@ -74,7 +74,7 @@ h1:hover {
     color: black; 
     border-radius: 15px;
     font-size: calc(0.8rem + 0.1vw);
-    background-color: white; 
+    background-color: rgba(255, 255, 255, 0.377);
 }
 
 .filtros h5 {
@@ -96,6 +96,13 @@ h1:hover {
     display: flex;
     flex-direction: column;
     height: 100%;
+    background: rgba(255, 255, 255, 0.377);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.especie-tarjeta button{
+    border-radius: 10px;
 }
 
 .card-img-top {
