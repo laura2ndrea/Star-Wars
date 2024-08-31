@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
             crearPaginas();
         } catch (error) {
             console.error('Error al traer las películas:', error);
-            containerPeliculas.innerHTML = '<p class="text-center">Error al cargar las películas. Por favor, inténtalo de nuevo más tarde.</p>';
+            containerPeliculas.innerHTML = '<p class="text-center">Error loading films. Please try again later.</p>';
         }
     }
 
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <img src="${urlImagen}" class="card-img-top" alt="${pelicula.title}" onerror="this.onerror=null; this.src='${urlImagenDefault}';">
                 <div class="card-body">
                     <h5 class="card-title">${pelicula.title}</h5>
-                    <button class="btn btn-primary" data-url="${pelicula.url}">Ver detalles</button>
+                    <button class="btn btn-primary" data-url="${pelicula.url}">See Details</button>
                 </div>
             </div>
         `;
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
             })
             .catch(error => {
                 console.error('Error al mostrar los detalles de la película', error);
-                peliculasDetalles.innerHTML = '<p class="text-center">Error al cargar los detalles. Por favor, inténtalo de nuevo más tarde.</p>';
+                peliculasDetalles.innerHTML = '<p class="text-center">Error loading details. Please try again later.</p>';
             });
     }
 
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function () {
             mostrarPeliculas(paginaActual);
             crearPaginas();
         } else {
-            containerPeliculas.innerHTML = '<p class="text-center">No se encontraron películas.</p>';
+            containerPeliculas.innerHTML = '<p class="text-center">No films found.</p>';
             paginasTodas.innerHTML = '';
         }
     });

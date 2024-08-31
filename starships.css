@@ -15,18 +15,24 @@
 
 html, body {
     height: 100%;
-    margin: 0; /* Elimina el margen predeterminado del body */
 }
 
-
-/* Asegura que el contenido principal ocupe el espacio disponible */
-main {
-    flex: 1; /* Permite que el main ocupe el espacio disponible entre el header y el footer */
-}
 body {
+    display: flex;
+    flex-direction: column;
     font-family: "Roboto Condensed", sans-serif;
     color: black;
 }
+
+/* Estilos para el header*/
+header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+}
+
 /* Estilos para el video de fondo*/
 video{
     position: fixed; 
@@ -38,6 +44,14 @@ video{
     z-index: -1; 
 }
 
+main {
+    flex: 1;
+}
+
+.text-center {
+    color: white
+}
+
 h1{
     font-family: 'StarJedi';
     color: white;
@@ -45,7 +59,7 @@ h1{
         0 0 5px #fff,
         0 0 10px #fff,
         0 0 15px #fff;
-    font-size: calc(3.5rem + 1vw);
+    font-size: calc(4.5rem + 1vw);
     text-align: center;
     transition: text-shadow 0.3s;
 }
@@ -112,8 +126,6 @@ h1:hover{
 }
 .card_starships_tarjeta button{
     border-radius: 10px;
-    background-color: rgb(170, 44, 6);
-    border:2px solid rgb(170, 44, 6);
 }
 
 footer {

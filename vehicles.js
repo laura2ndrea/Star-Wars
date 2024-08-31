@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
             crearPaginas();
         } catch (error) {
             console.error('Error al traer los vehículos:', error);
-            containerVehicles.innerHTML = '<p class="text-center">Error al cargar los vehículos. Por favor, inténtalo de nuevo más tarde.</p>';
+            containerVehicles.innerHTML = '<p class="text-center">Error loading details. Please try again later</p>';
         }
     }
 
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const vehiclesPorPagina = vehiclesMostrados.slice(inicio, fin);
 
         if (vehiclesPorPagina.length === 0) {
-            containerVehicles.innerHTML = '<p class="text-center">No se encontraron vehículos.</p>';
+            containerVehicles.innerHTML = '<p class="text-center">No vehicles found</p>';
             paginasTodas.innerHTML = '';
             return;
         }
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <img src="${urlImagen}" class="card-img-top" alt="${vehicle.name}" onerror="this.onerror=null; this.src='${urlImagenDefault}';">
                 <div class="card-body">
                     <h5 class="card-title">${vehicle.name}</h5>
-                    <button class="btn btn-primary" data-url="${vehicle.url}">Ver detalles</button>
+                    <button class="btn btn-primary" data-url="${vehicle.url}">See Details</button>
                 </div>
             </div>
         `;
@@ -114,8 +114,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 detalleVehicleModal.show();
             })
             .catch(error => {
-                console.error('Error al mostrar los detalles del vehículo', error);
-                vehiclesDetalles.innerHTML = '<p class="text-center">Error al cargar los detalles. Por favor, inténtalo de nuevo más tarde.</p>';
+                console.error('Error displaying vehicle details', error);
+                vehiclesDetalles.innerHTML = '<p class="text-center">Error loading details. Please try again later.</p>';
             });
     }
 
@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function () {
             mostrarVehicles(paginaActual);
             crearPaginas();
         } else {
-            containerVehicles.innerHTML = '<p class="text-center">No se encontraron vehículos.</p>';
+            containerVehicles.innerHTML = '<p class="text-center">No vehicles found</p>';
             paginasTodas.innerHTML = '';
         }
     });

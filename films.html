@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="icono.png">
+    <link rel="icon" href="/recursos/icono.ico">
     <link rel="stylesheet" href="films.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -21,7 +21,7 @@
         <section class="row mb-4">
             <div class="col-md-8 offset-md-2">
                 <div class="input-group">
-                    <input type="text" id="barraBusqueda" class="form-control" placeholder="Buscar Película por nombre">
+                    <input type="text" id="barraBusqueda" class="form-control" placeholder="Search film by name">
                     <div class="input-group-append">
                         <button id="botonBusqueda" class="btn btn-primary">Buscar</button>
                     </div>
@@ -33,17 +33,17 @@
             <!-- Columna de Filtros -->
             <aside id="filtrosColumna" class="col-md-2 mb-4">
                 <div class="filtros">
-                    <h5>Filtros</h5>
+                    <h5>Filters</h5>
                     <form id="formFiltros">
                         <!-- Sin filtro -->
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="filtro" value="" id="sinFiltro" checked>
                             <label class="form-check-label" for="sinFiltro">
-                                Mostrar todos
+                                All
                             </label>
                         </div>
                         <!-- Filtros por trilogía -->
-                        <h6>Trilogía</h6>
+                        <h6>Trilogy</h6>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="filtro" value="original_trilogy"
                                 id="trilogiaOriginal">
@@ -55,11 +55,11 @@
                             <input class="form-check-input" type="radio" name="filtro" value="prequel_trilogy"
                                 id="trilogiaPrecuela">
                             <label class="form-check-label" for="trilogiaPrecuela">
-                                Precuela
+                                Prequel
                             </label>
                         </div>
                         <!-- Filtros por año -->
-                        <h6>Año</h6>
+                        <h6>Year</h6>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="filtro" value="1900s">
                             <label class="form-check-label" for="filtro1900s">
@@ -73,7 +73,7 @@
                             </label>
                         </div>
 
-                        <button type="button" id="aplicarFiltros" class="btn btn-primary mt-3">Aplicar filtros</button>
+                        <button type="button" id="aplicarFiltros" class="btn btn-primary mt-3">Apply filters</button>
                     </form>
                 </div>
             </aside>
@@ -111,11 +111,17 @@
     <footer class="text-white text-center py-3">
         <p>&copy; Star Wars</p>
     </footer>
-<!-- Video que se mostrara en el fondo -->
-<video autoplay muted loop id="background-video">
-    <source src="../recursos/fondo-people.mp4" type="video/mp4">
-    Your browser does not support video playback.
-</video>
+
+    <!-- Botón para regresar a home -->
+    <a href="index.html" class="btn btn-light position-fixed bottom-0 end-0 m-3">
+        <i class="bi bi-house"></i>
+    </a>
+
+    <!-- Video que se mostrara en el fondo -->
+    <video autoplay muted loop id="background-video">
+        <source src="../recursos/fondo-people.mp4" type="video/mp4">
+        Your browser does not support video playback.
+    </video>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"

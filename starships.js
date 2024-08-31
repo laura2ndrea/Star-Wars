@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
             crearPaginas();
         } catch (error) {
             console.error('Error al traer los starships:', error);
-            containerStarships.innerHTML = '<p class="text-center">Error al cargar los starships. Por favor, inténtalo de nuevo más tarde.</p>';
+            containerStarships.innerHTML = '<p class="text-center">Error loading starships. Please try again later.</p>';
         }
     }
 
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const starshipsPorPagina = starshipsMostrados.slice(inicio, fin);
 
         if (starshipsPorPagina.length === 0) {
-            containerStarships.innerHTML = '<p class="text-center">No se encontraron starships.</p>';
+            containerStarships.innerHTML = '<p class="text-center">No starships found.</p>';
             paginasTodas.innerHTML = '';
             return;
         }
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <img src="${urlImagen}" class="card-img-top" alt="${starship.name}" onerror="this.onerror=null; this.src='${urlImagenDefault}';">
                 <div class="card-body">
                     <h5 class="card-title">${starship.name}</h5>
-                    <button class="btn btn-primary" data-url="${starship.url}">Ver detalles</button>
+                    <button class="btn btn-primary" data-url="${starship.url}">See Details</button>
                 </div>
             </div>
         `;
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
             })
             .catch(error => {
                 console.error('Error al mostrar los detalles del starship', error);
-                starshipsDetalles.innerHTML = '<p class="text-center">Error al cargar los detalles. Por favor, inténtalo de nuevo más tarde.</p>';
+                starshipsDetalles.innerHTML = '<p class="text-center">Error loading details. Please try again later.</p>';
             });
     }
 
@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function () {
             mostraStarship(paginaActual);
             crearPaginas();
         } else {
-            containerStarships.innerHTML = '<p class="text-center">No se encontraron starships.</p>';
+            containerStarships.innerHTML = '<p class="text-center">No starships found.</p>';
             paginasTodas.innerHTML = '';
         }
     });

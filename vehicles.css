@@ -13,9 +13,11 @@
     box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
-    margin: 0; /* Elimina el margen predeterminado del body */
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: "Roboto Condensed", sans-serif;
+    color: black;
 }
 
 /* Estilos para el video de fondo*/
@@ -29,23 +31,34 @@ video{
     z-index: -1; 
 }
 
+.text-center {
+    color: white
+}
 /* Asegura que el contenido principal ocupe el espacio disponible */
 main {
     flex: 1; /* Permite que el main ocupe el espacio disponible entre el header y el footer */
 }
-body { 
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
     font-family: "Roboto Condensed", sans-serif;
     color: black;
 }
 
-h1{
+
+h1 {
     font-family: 'StarJedi';
     color: white;
     text-shadow:
         0 0 5px #fff,
         0 0 10px #fff,
         0 0 15px #fff;
-    font-size: calc(3.5rem + 1vw);
+    font-size: calc(3.5em + 1vw);
     text-align: center;
     transition: text-shadow 0.3s;
 }
@@ -102,7 +115,7 @@ h1:hover{
 }
 
 .btn {
-    align-self: start; /* Centra el botón dentro de la tarjeta */
+    align-self: start;
 }
 
 .card_pelicula_tarjeta{
@@ -112,13 +125,8 @@ h1:hover{
 }
 .card_pelicula_tarjeta button{
     border-radius: 10px;
-    background-color: rgb(170, 44, 6);
-    border:2px solid rgb(170, 44, 6);
 }
-.btn.btn-primary.mt-3 {
-    background-color: rgb(4, 17, 136);
-    border:2px solid rgb(4, 17, 136);
-}
+
 
 .card_vehicle_tarjeta{
     background: rgba(255, 255, 255, 0.377);
@@ -128,8 +136,6 @@ h1:hover{
 
 .card_vehicle_tarjeta button{
     border-radius: 10px;
-    background-color: rgb(170, 44, 6);
-    border:2px solid rgb(170, 44, 6);
 }
 footer {
     border-top: solid white thin;
