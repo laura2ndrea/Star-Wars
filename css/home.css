@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+@font-face {
+    font-family: 'SFDistant';
+    src:
+        url('../fuentes/SF_Distant_Galaxy_AltOutline.ttf') format('truetype'),
+}
+
+/* Estilos para la página en general*/ 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: white; 
+}
+
+/* Estilos para el video de fondo*/
+video{
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    z-index: -1; 
+}
+
+main {
+    flex: 1;
+}
+
+/* Estilos para el header */
+header h1{
+    font-family: 'SFDistant', 'sans-serif';
+    font-weight: bold;
+    color: rgb(255, 217, 0); 
+    font-size: calc(3.5rem + 1vw);
+    transition: text-shadow 0.3s;
+}
+
+header h1:hover{
+    text-shadow:
+        0 0 5px #f8f8f8,    
+        0 0 10px #ffff66,   
+        0 0 20px #ffff66,  
+        0 0 30px #ffcc00,   
+        0 0 40px #ffcc00,
+        0 0 50px #FFD900;    
+        
+}
+
+/* Estilos para el footer */ 
+footer {
+    border-top: solid white thin;
+}
+
+footer img{
+    width: 2rem;
+    margin-left: 20px;
+}

@@ -1,39 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Star Wars Planets</title>
+    <title>Star Wars</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
+
 <body>
-    <h1>Check the console for planet climates</h1>
+    <main class="menu">
+        <h1>STAR<br>WARS</h1>
+    </main>
+    <header class="main">
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburguer-menu" style="color: white;">&#9776;</label>
+        <div class="menu-overlay">
+            <label for="menu-toggle" class="close-menu">&times;</label>
+            <nav class="navegador">
+                <ul class="barra">
+                    <li><a href="films.html">FILMS</a></li>
+                    <li><a href="people.html">PEOPLE</a></li>
+                    <li><a href="starships.html">STARSHIPS</a></li>
+                    <li><a href="vehicles.html">VEHICLES</a></li>
+                    <li><a href="species.html">SPECIES</a></li>
+                    <li><a href="planet.html">PLANET</a></li>
+                </ul>
+            </nav>
+        </div>
+        <nav class="nave">
+            <ul class="barra">
+                <li><a href="films.html">FILMS</a></li>
+                <li><a href="people.html">PEOPLE</a></li>
+                <li><a href="starships.html">STARSHIPS</a></li>
+                <li><a href="vehicles.html">VEHICLES</a></li>
+                <li><a href="species.html">SPECIES</a></li>
+                <li><a href="planet.html">PLANET</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="container">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://i.pinimg.com/originals/49/86/d7/4986d7c7b927ef7dfc9955f1d05267b7.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/564x/cf/4d/4d/cf4d4d5884d5eb954eeeeed5e8628ac9.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/564x/56/50/b8/5650b8c8be8dffac51ae16adc8ee64a4.jpg" class="d-block w-100" alt="...">
+                </div>
+            </div>
+        </div>
 
+    <footer class="redes">
+        <h2>MORE FROM STAR WARS</h2>
+        <a href="https://www.tiktok.com/@starwars?lang=en">
+            <img src="https://static.vecteezy.com/system/resources/previews/023/986/492/non_2x/tiktok-logo-tiktok-logo-transparent-tiktok-icon-transparent-free-free-png.png"
+                alt="">
+        </a>
+        <a href="https://www.facebook.com/StarWars/">
+            <img src="https://cdn.freebiesupply.com/logos/large/2x/facebook-logo-white-2019.png" alt="">
+        </a>
+        <a href="https://x.com/starwars?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">
+            <img src="https://img.freepik.com/free-vector/new-2023-twitter-logo-x-icon-design_1017-45418.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1724889600&semt=ais_hybrid"
+                alt="">
+        </a>
+        <a href="https://www.youtube.com/user/starwars">
+            <img src="https://img.icons8.com/win10/200/FFFFFF/youtube-squared.png" alt="">
+        </a>
+    </footer>
+</section>
     <script>
-        async function fetchPlanets() {
-            const url = 'https://swapi.dev/api/species/';
-            try {
-                const response = await fetch(url);
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const data = await response.json();
-                return data.results;
-            } catch (error) {
-                console.error('Fetch error:', error);
-            }
-        }
-
-        async function displayPlanets() {
-            const planets = await fetchPlanets();
-
-            if (planets) {
-                planets.forEach(planet => {
-                    console.log(`${planet.language}`);
-                });
-            }
-        }
-
-        displayPlanets();
+        $(document).ready(function () {
+            $('#carouselExampleSlidesOnly').carousel();
+        });
     </script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="./index.js"></script>
 </body>
+
 </html>

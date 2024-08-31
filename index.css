@@ -1,0 +1,213 @@
+* {
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("Start Wars.jpg");
+    background-size: cover;
+    font-family: "OpenSans-VariableFont_wdth,wght.ttf", "sans-serif";
+    overflow-x: hidden;
+}
+
+@font-face {
+    font-family: "SF-Distant-Galaxy-AltOutline";
+    src: url("SF_Distant_Galaxy_AltOutline.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "OpenSans-VariableFont_wdth,wght.ttf";
+    src: url("OpenSans-VariableFont_wdth,wght.ttf") format("truetype");
+}
+
+/* Estilos del botón del menú hamburguesa */
+.hamburguer-menu {
+    position: fixed;
+    top: 20px;
+    left: 20px; /* Cambia de right a left */
+    background-color: transparent;
+    border: none;
+    font-size: 40px; /* Reduce el tamaño del icono */
+    cursor: pointer;
+    color: white;
+}
+
+/* Ocultar el menú inicialmente */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px; /* Reduce el ancho del menú */
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9;
+}
+
+/* Estilos del botón para cerrar el menú */
+.close-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: transparent;
+    border: none;
+    font-size: 30px; /* Reduce el tamaño del icono */
+    color: white;
+    cursor: pointer;
+}
+
+/* Estilos de los enlaces del menú */
+.navegador ul {
+    list-style: none;
+    text-align: center;
+}
+
+.navegador ul li {
+    margin: 10px 0; /* Reduce el margen entre los items */
+}
+
+.navegador ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px; /* Reduce el tamaño del texto */
+    transition: color 0.3s;
+}
+
+.navegador ul li a:hover {
+    color: #F7C826;
+}
+
+
+
+/* Estilos de los enlaces del menú */
+.nave ul {
+    list-style: none;
+    text-align: center;
+}
+
+.nave ul li {
+    margin: 10px 0; /* Reduce el margen entre los items */
+}
+
+.nave ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px; /* Reduce el tamaño del texto */
+    transition: color 0.3s;
+}
+
+.nave ul li a:hover {
+    color: #F7C826;
+}
+/* Mostrar el menú cuando esté activo */
+.menu-overlay.active {
+    display: flex;
+}
+
+/* Ocultar el checkbox */
+.menu-toggle {
+    display: none;
+}
+
+/* Mostrar el menú si el checkbox está marcado */
+.menu-toggle:checked ~ .menu-overlay {
+    display: flex;
+}
+
+/* Ocultar el icono de las tres barras cuando el menú esté abierto */
+.menu-toggle:checked + .hamburguer-menu {
+    display: none;
+}
+
+.menu {
+    margin: 1.5%;
+}
+
+.menu h1 {
+    font-family: "SF-Distant-Galaxy-AltOutline", "sans-serif";
+    text-align: center;
+    color: rgb(255, 217, 0);
+    font-size: 5.5em;
+}
+
+.barra {
+    font-size: 1.5em;
+    text-align: center;
+    padding: 1%;
+}
+
+.barra li {
+    list-style: none;
+    display: inline;
+}
+
+.barra li a {
+    color: white;
+    text-decoration: none;
+    margin: 5%;
+}
+
+.container {
+    width: 100%;
+    height: 25%;
+}
+
+.carousel {
+    width: 100%;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 50vh; /* Mantiene la proporción de aspecto */
+}
+
+@media (max-width: 768px) {
+    .carousel-item img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+
+.redes {
+    margin: 1%;
+    text-align: center;
+    width: 100%;
+}
+
+.redes h2 {
+    color: white;
+    font-size: 1em;
+    text-align: center;
+}
+
+.redes img {
+    width: 3vh;
+    height: 3vh;
+    margin: 2%;
+}
+
+@media (min-width: 659px) {
+    .hamburguer-menu {
+        display: none;
+    }
+}
+
+@media (max-width: 700px) {
+    .nave {
+        display: none;
+    }
+    .menu h1 {
+        font-family: "/fuentes/SF Distant Galaxy AltOutline.ttf", "sans-serif";
+        text-align: center;
+        color: rgb(255, 217, 0);
+        font-size: 3em;
+        padding-top: 4%;
+    }
+
+}
