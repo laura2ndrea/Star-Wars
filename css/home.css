@@ -29,6 +29,10 @@ main {
     margin: 70px 80px;
 }
 
+.carousel-item img {
+    border-radius: 25px; 
+}
+
 /* Estilos para el video de fondo*/
 video{
     position: fixed; 
