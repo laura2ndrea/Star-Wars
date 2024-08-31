@@ -2,13 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 
 @font-face {
-    font-family: 'StarJedi';
-    src:
-        url('../fuentes/Starjedi.ttf') format('truetype'),
-        url('../fuentes/Starjhol.ttf') format('truetype');
-}
-
-@font-face {
     font-family: 'SFDistant';
     src:
         url('../fuentes/SF_Distant_Galaxy_AltOutline.ttf') format('truetype'),
