@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/recursos/icono.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/films.css">
+    <title>Star Wars</title>
+</head>
+
+<body>
+    <header>
+        <h1 class="text-center py-3">Films</h1>
+    </header>
+
+    <main class="container my-4">
+        <!-- Barra de búsqueda -->
+        <section class="row mb-4">
+            <div class="col-md-8 offset-md-2">
+                <div class="input-group">
+                    <input type="text" id="barraBusqueda" class="form-control" placeholder="Search film by name">
+                    <div class="input-group-append">
+                        <button id="botonBusqueda" class="btn btn-primary">Search</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="row">
+            <!-- Botón de filtro para pantallas pequeñas -->
+            <div class="col-12 d-md-none mb-3">
+                <button class="btn btn-primary btn-filtros position-relative start-50 translate-middle-x" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#filtrosColumna" aria-expanded="false"
+                    aria-controls="filtrosColumna">
+                    Filter
+                </button>
+            </div>
+            <!-- Columna de Filtros -->
+            <aside id="filtrosColumna" class="col-md-2 mb-4 collapse d-md-block">
+                <div class="filtros">
+                    <h5>Filters</h5>
+                    <form id="formFiltros">
+                        <!-- Sin filtro -->
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="filtro" value="" id="sinFiltro" checked>
+                            <label class="form-check-label" for="sinFiltro">
+                                All
+                            </label>
+                        </div>
+                        <!-- Filtros por trilogía -->
+                        <h6>Trilogy</h6>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="filtro" value="original_trilogy"
+                                id="trilogiaOriginal">
+                            <label class="form-check-label" for="trilogiaOriginal">
+                                Original
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="filtro" value="prequel_trilogy"
+                                id="trilogiaPrecuela">
+                            <label class="form-check-label" for="trilogiaPrecuela">
+                                Prequel
+                            </label>
+                        </div>
+                        <!-- Filtros por año -->
+                        <h6>Year</h6>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="filtro" value="1900s">
+                            <label class="form-check-label" for="filtro1900s">
+                                1900s
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="filtro" value="2000s">
+                            <label class="form-check-label" for="filtro2000s">
+                                2000s
+                            </label>
+                        </div>
+
+                        <button type="button" id="aplicarFiltros" class="btn btn-primary mt-3 position-relative start-50 translate-middle-x">Apply</button>
+                    </form>
+                </div>
+            </aside>
+
+            <!-- Grid de películas -->
+            <section id="containerPeliculas" class="col-md-10 row">
+                <!-- Aquí se verán las películas dentro de tarjetas -->
+            </section>
+        </section>
+
+        <!-- Páginas -->
+        <nav aria-label="Páginas de las películas" id="paginas">
+            <ul class="pagination justify-content-center mt-4">
+                <!-- Aquí se generarán las páginas correspondientes -->
+            </ul>
+        </nav>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal fade" id="detallePeliculaModal" tabindex="-1" aria-labelledby="detallePeliculaModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detallePeliculaModalLabel">Film details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="peliculasDetalles">
+                    <!-- Aquí se mostrará la información detallada de las películas -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-white text-center py-3">
+        <p>&copy; Star Wars</p>
+    </footer>
+
+    <!-- Botón para regresar a home -->
+    <a href="../vistas/home.html" class="btn btn-light position-fixed bottom-0 end-0 m-3">
+        <i class="bi bi-house"></i>
+    </a>
+
+    <!-- Video que se mostrara en el fondo -->
+    <video autoplay muted loop id="background-video">
+        <source src="../recursos/fondo-films.mp4" type="video/mp4">
+        Your browser does not support video playback.
+    </video>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="../js/films.js"></script>
+</body>
+
+</html>

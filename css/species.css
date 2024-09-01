@@ -1,0 +1,143 @@
+/* Fuente para el titulo y demás texto*/
+@import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+@font-face {
+    font-family: 'SFDistant';
+    src:
+        url('../fuentes/SF_Distant_Galaxy_AltOutline.ttf') format('truetype'),
+}
+
+/* Estilos para la página en general*/ 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: "Roboto Condensed", sans-serif;
+    color: black;
+}
+
+/* Estilos para el video de fondo*/
+video{
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    z-index: -1; 
+}
+
+main {
+    flex: 1;
+}
+
+/* Estilos para el header*/
+header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+h1 {
+    font-family: 'SFDistant';
+    font-weight: bold;
+    color: rgb(255, 217, 0); 
+    font-size: calc(3.5rem + 1vw);
+    text-align: center;
+    transition: text-shadow 0.3s;
+}
+
+h1:hover {
+    text-shadow:
+        0 0 5px #f8f8f8,    
+        0 0 10px #ffff66,   
+        0 0 20px #ffff66,  
+        0 0 30px #ffcc00,   
+        0 0 40px #ffcc00,
+        0 0 50px #FFD900;  
+}
+
+/*Estilos para la columna de filtros*/
+.filtros {
+    padding: 10px;
+    color: black; 
+    border-radius: 15px;
+    font-size: calc(0.8rem + 0.1vw);
+    background-color: rgba(255, 255, 255, 0.377);
+}
+
+.filtros h5 {
+    text-align: center;
+}
+
+.filtros h6 {
+    text-align: center;
+}
+
+.btn-filtros {
+    padding: 0.5rem 1rem;
+    width: auto;
+    max-width: 150px;
+}
+
+/*Estilos para las tarjetas de las especies*/
+.especie-tarjeta {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.377);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.especie-tarjeta button{
+    border-radius: 10px;
+}
+
+.card-img-top {
+    object-fit: cover;
+}
+
+.card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.btn {
+    align-self: start;
+}
+
+/*Estilos para el footer de la página*/
+footer {
+    border-top: solid white thin;
+}
+
+/*Estilos para cuando la página sea muy pequeña*/
+@media (max-width: 330px) {
+    body {
+        display: none;
+    }
+
+    html {
+        content: "";
+        display: block;
+        width: 100vw;
+        height: 100vh;
+        background-image: url('../recursos/no-disponible.png');
+        background-size: cover;
+        background-position: center;
+    }
+}

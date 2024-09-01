@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../recursos/icono.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/planets.css">
+    <title>Star Wars</title>
+</head>
+
+<body>
+
+    <!-- Encabezado -->
+    <header>
+        <h1 class="text-center py-3">Planets</h1>
+    </header>
+
+    <main class="container my-4">
+        <!-- Barra de búsqueda -->
+        <section class="row mb-4">
+            <div class="col-md-8 offset-md-2">
+                <div class="input-group">
+                    <input type="text" id="barraBusqueda" class="form-control" placeholder="Search planets by name">
+                    <button id="botonBusqueda" class="btn btn-primary">Search</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="row">
+            <!-- Botón de filtro para pantallas pequeñas -->
+            <div class="col-12 d-md-none mb-3">
+                <button class="btn btn-primary btn-filtros position-relative start-50 translate-middle-x" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#filtrosColumna" aria-expanded="false"
+                    aria-controls="filtrosColumna">
+                    Filter
+                </button>
+            </div>
+
+            <!-- Columna de Filtros -->
+            <aside id="filtrosColumna" class="col-md-2 mb-4 collapse d-md-block">
+                <div class="filtros">
+                    <h5>Filter</h5>
+                    <form id="formFiltros">
+                        <!-- Sin filtro -->
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="filtro" value="" checked>
+                            <label class="form-check-label">
+                                All
+                            </label>
+                        </div>
+                        <!-- Filtros por clima -->
+                        <h6>Climate</h6>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="filtro" value="arid">
+                            <label class="form-check-label">
+                                Arid
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="filtro" value="temperate">
+                            <label class="form-check-label">
+                                Temperate
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="filtro" value="frozen">
+                            <label class="form-check-label">
+                                Frozen
+                            </label>
+                        </div>
+                        <!-- Filtros por terreno -->
+                        <h6>Terrain</h6>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="filtro" value="desert">
+                            <label class="form-check-label">
+                                Desert
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="filtro" value="jungle">
+                            <label class="form-check-label">
+                                Jungle
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="filtro" value="ocean">
+                            <label class="form-check-label">
+                                Ocean
+                            </label>
+                        </div>
+                        <!-- Filtros por películas -->
+                        <h6>Films</h6>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="filtro" value="hope">
+                            <label class="form-check-label">
+                                A New Hope
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="filtro" value="jedi">
+                            <label class="form-check-label">
+                                Return of the Jedi
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="filtro" value="clones">
+                            <label class="form-check-label">
+                                Attack of the Clones
+                            </label>
+                        </div>
+                        <button type="button" id="aplicarFiltros"
+                            class="btn btn-primary mt-3 position-relative start-50 translate-middle-x">Apply</button>
+                    </form>
+                </div>
+            </aside>
+
+            <!-- Grid de planetas -->
+            <section id="containerPlanetas" class="col-md-10 row">
+                <!-- Aquí se verán los planetas dentro de tarjetas -->
+            </section>
+        </section>
+
+        <!-- Paginas -->
+        <nav aria-label="Paginas de los planetas" id="paginas">
+            <ul class="pagination justify-content-center mt-4">
+                <!-- Aquí se generarán las páginas correspondientes -->
+            </ul>
+        </nav>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal fade" id="detallePlanetaModal" tabindex="-1" aria-labelledby="detallePlanetaModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detallePlanetaModalLabel">Planet details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="planetasDetalles">
+                    <!-- Aqui se mostrara la información detallada de los planetas -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón para regresar a home -->
+    <a href="../vistas/home.html" class="btn btn-light position-fixed bottom-0 end-0 m-3">
+        <i class="bi bi-house"></i>
+    </a>
+
+    <!-- Footer de la página -->
+    <footer class="text-white text-center py-3">
+        <p>&copy; Star Wars</p>
+    </footer>
+
+    <!-- Video que se mostrara en el fondo -->
+    <video autoplay muted loop id="background-video">
+        <source src="../recursos/fondo-planets.mp4" type="video/mp4">
+        Your browser does not support video playback.
+    </video>
+
+    <!-- Script de Bootstrap y el archivo js de esta página -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="../js/planets.js"></script>
+</body>
+
+</html>

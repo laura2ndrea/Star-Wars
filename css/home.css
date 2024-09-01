@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+@font-face {
+    font-family: 'SFDistant';
+    src:
+        url('../fuentes/SF_Distant_Galaxy_AltOutline.ttf') format('truetype'),
+}
+
+/* Estilos para la página en general*/ 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: white; 
+}
+
+main {
+    flex: 1;
+    margin: 70px 80px;
+}
+
+.carousel-item img {
+    border-radius: 25px; 
+}
+
+/* Estilos para el video de fondo*/
+video{
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    z-index: -1; 
+}
+
+/* Estilos para el header */
+header h1{
+    font-family: 'SFDistant', 'sans-serif';
+    font-weight: bold;
+    color: rgb(255, 217, 0); 
+    font-size: calc(3.5rem + 1vw);
+    transition: text-shadow 0.3s;
+    margin: 0;
+}
+
+header h1:hover{
+    text-shadow:
+        0 0 5px #f8f8f8,    
+        0 0 10px #ffff66,   
+        0 0 20px #ffff66,  
+        0 0 30px #ffcc00,   
+        0 0 40px #ffcc00,
+        0 0 50px #FFD900;    
+        
+}
+
+.navegador{
+    display: flex;
+    justify-content: space-evenly;
+    border-bottom: solid white thin;
+    margin-top: 0;
+}
+
+.navegador ul {
+    list-style: none;
+}
+
+.navegador ul li {
+    display: inline-block;
+    padding: 0 10px;
+    transition: transform 0.3s;
+}
+
+.navegador ul li:hover {
+    transform: scale(1.1);
+}
+
+.navegador ul li a {
+    font-size: clamp(0.5em, 1.5vw, 1em);
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.navegador ul li a:hover {
+    background-color: white;
+    color: rgb(255, 217, 0);
+    font-weight: bold;
+}
+
+/* Estilos para el footer */ 
+footer {
+    border-top: solid white thin;
+    font-size: 1rem;
+}
+
+footer img{
+    width: 2rem;
+    margin-left: 20px;
+    transition: width 0.3s;
+}
+
+footer img:hover{
+    width: 2rem;
+    margin-left: 20px;
+    width: 2.5rem;
+}
+
+/* Ocultar menu hamburguesa */
+.menu-toggle {
+    display: none; 
+}
+
+.hamburguer-menu {
+    display: none;
+}
+
+.close-menu {
+    display: none;
+}
+
+@media (max-width: 675px) {
+    /*Main*/
+    main {
+        flex: 1;
+        margin: 20px;
+    }
+
+    /*Menu hamburguesa */
+    .hamburguer-menu {
+        display: block;
+        position: fixed;
+        top: 30px;
+        right: 30px;
+        background-color: transparent; 
+        border: none;
+        font-size: 30px;
+        cursor: url("/recursos/cursor.png"), auto;
+        color:rgb(255, 217, 0);
+
+    }
+
+    .menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9;
+    }
+
+    .close-menu {
+        display: flex;
+        position: absolute;
+        top: 70px;
+        right: 70px;
+        background-color: transparent;
+        border: none;
+        font-size: 40px;
+        color:  white;
+        cursor: url("/recursos/cursor.png"), auto;
+    }
+
+    .navegador{
+        border-bottom: transparent;
+    }
+
+    .navegador ul {
+        list-style: none;
+        text-align: center;
+    }
+
+    .navegador ul li {
+        display: block;
+        margin: 20px 0;
+    }
+
+    .navegador ul li a {
+        border: none;
+        font-size: 24px;
+        transition: color 0.3s;
+    }
+
+    .menu-overlay.active {
+        display: flex;
+    }
+
+    .menu-toggle:checked~.menu-overlay {
+        display: flex;
+    }
+
+    .menu-toggle:checked+.hamburguer-menu {
+        display: none;
+    }
+}
+
+/*Estilos para cuando la página sea muy pequeña*/
+@media (max-width: 330px) {
+    body {
+        display: none;
+    }
+
+    html {
+        content: "";
+        display: block;
+        width: 100vw;
+        height: 100vh;
+        background-image: url('../recursos/no-disponible.png');
+        background-size: cover;
+        background-position: center;
+    }
+}

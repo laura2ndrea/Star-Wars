@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../recursos/icono.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/home.css">
+    <title>Star Wars</title>
+</head>
+
+<body>
+    <!-- Header de la página -->
+    <header>
+        <!-- Título principal -->
+        <h1 class="text-center py-3">STAR <br> WARS</h1>
+        <!-- Menú de navegación -->
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburguer-menu">&#9776;</label>
+        <div class="menu-overlay">
+            <label for="menu-toggle" class="close-menu">&times;</label>
+            <nav class="navegador">
+                <ul>
+                    <li><a href="../vistas/films.html">FILMS</a></li>
+                    <li><a href="../vistas/people.html">PEOPLE</a></li>
+                    <li><a href="../vistas/starships.html">STARSHIPS</a></li>
+                    <li><a href="../vistas/vehicles.html">VEHICLES</a></li>
+                    <li><a href="../vistas/species.html">SPECIES</a></li>
+                    <li><a href="../vistas/planets.html">PLANETS</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Carrusel de imagenes -->
+    <main class="d-flex justify-content-center align-items-center vh-100">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="../recursos/home1.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="../recursos/home2.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="../recursos/home3.jpg" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </main>
+
+    <!-- Footer de la página -->
+    <footer class="text-center py-3">
+        <p>MORE FROM STAR WARS</p>
+        <a href="https://www.tiktok.com/@starwars?lang=en" target="_blank"><img src="../recursos/tik-tok.png"
+                alt="Tik-Tok"></a>
+        <a href="https://www.facebook.com/StarWars/" target="_blank"><img src="../recursos/facebook.png"
+                alt="Facebook"></a>
+        <a href="https://x.com/starwars?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank"><img
+                src="../recursos/x.png" alt="X"><a>
+                <a href="https://www.youtube.com/user/starwars" target="_blank"><img src="../recursos/youtube.png"
+                        alt="Youtube"><a>
+    </footer>
+
+    <!-- Video que se mostrara en el fondo -->
+    <video autoplay muted loop id="background-video">
+        <source src="../recursos/fondo-home.mp4" type="video/mp4">
+        Your browser does not support video playback.
+    </video>
+
+    <!-- Script de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
