@@ -1,5 +1,5 @@
 # Star Wars 🌌
-Pagina que utiliza SWAPI (Star Wars API) para mostrar personajes, películas, especies, vehículo, naves y planetas del universo de Star Wars. 
+Pagina que utiliza SWAPI (Star Wars API) para mostrar personajes, películas, especies, vehículos, naves y planetas del universo de Star Wars. 
 
 ## Contenido 
 1. [Información general](#info-general)
@@ -43,15 +43,16 @@ Pagina que utiliza SWAPI (Star Wars API) para mostrar personajes, películas, es
 
   <img src="/readme/planets.png" width="80%" alt="home">
 
-- **No disponible:** esta imagen aparece cuando la pantalla es muy pequeña. 
+- **No disponible:** esta imagen aparece cuando la pantalla es muy pequeña.
+  
   <img src="/recursos/no-disponible.png" width="80%" alt="home">
 ---
 <a name="tecno"></a>
 ## Tecnologías :computer:
 
-- **HTML5:**.
-- **CSS3:**.
-- **JS:**. 
+- **HTML5.**
+- **CSS3.**
+- **JavaScript.**
 
 ---
 <a name="install"></a>
@@ -80,6 +81,7 @@ Pagina que utiliza SWAPI (Star Wars API) para mostrar personajes, películas, es
      
 - **Michelle Sánchez**:
    - *Aportes: diseño y construcción de home, starships, vehicles y films*
+   -  *Contacto: dayannasan112@gmail.com*
 ---
 
 Hecho con 🫀 por [LauraRodriguez](https://github.com/laura2ndrea) y [MichelleSanchez](https://github.com/miDaya02)) 
