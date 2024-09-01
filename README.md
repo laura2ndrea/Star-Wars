@@ -84,5 +84,5 @@ Pagina que utiliza SWAPI (Star Wars API) para mostrar personajes, películas, es
    -  *Contacto: dayannasan112@gmail.com*
 ---
 
-Hecho con 🫀 por [LauraRodriguez](https://github.com/laura2ndrea) y [MichelleSanchez](https://github.com/miDaya02)) 
+Hecho con ❤️ por [LauraRodriguez](https://github.com/laura2ndrea) y [MichelleSanchez](https://github.com/miDaya02) 
 
